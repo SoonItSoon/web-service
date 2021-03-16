@@ -1,30 +1,51 @@
 import express from 'express';
-// Middlewares
-import cokieParser from 'cookie-parser';
-import bodyParser from 'body-parser';
-import helmet from 'helmet';
-import morgan from 'morgan';
+// Packages
+import createError from 'http-errors';
+import path from 'path';
 import cookieParser from 'cookie-parser';
-import localsMiddleware from './localsMiddleware';
+import logger from 'morgan';
+import helmet from 'helmet';
+import {} from 'dotenv/config'
+// Locals
+import locals from './locals';
 // Routers
-import globalRouter from './routers/globalRouter';
-import userRouter from './routers/userRouter';
+import indexRouter from './routers/indexRouter';
+import usersRouter from'./routers/usersRouter';
 // Routes
 import routes from './routes';
 
 const app = express();
-// Set View Engine
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-// Use Middlewares
+// packages setup
+app.use(helmet());
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(helmet());   // secure
-app.use(morgan('dev')); // logger
-app.use(localsMiddleware);
+app.use(express.static(path.join(__dirname, 'public')));
+// locals setup
+app.use(locals);
+// routers setup
+app.use(routes.home.single, indexRouter);
+app.use(routes.users.single, usersRouter);
 
-// Use Routers
-app.use(routes.home.single, globalRouter);
-app.use(routes.users.single, userRouter);
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
 
-export default app;
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+module.exports = app;
