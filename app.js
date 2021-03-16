@@ -5,7 +5,8 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import helmet from 'helmet';
-import {} from 'dotenv/config'
+import {} from 'dotenv/config';
+import firebase from './firebase';
 // Locals
 import locals from './locals';
 // Routers
