@@ -1,18 +1,9 @@
 header.header
-    .header__column
+    nav.header__nav
         a(href=routes.home.href)
             i.fas.fa-home
-    .header__column
-        ul
-            li
-                a(href=routes.home.href) Home
-            li
-                a(href=routes.join.href) Join
-            li
-                a(href=routes.login.href) Log In
-            li
-                a(href=routes.logout.href) Log Out
-            li
-                a(href=routes.userDetail.href()) User Detail
-            li 
-                a(href=routes.editProfile.href) Edit Profile
+        a(href=routes.join.href) Join
+        a(href=routes.login.href) Log In
+        a(href=routes.logout.href) Log Out
+        a(href=routes.userDetail.href()) User Detail
+        a(href=routes.editProfile.href) Edit Profile

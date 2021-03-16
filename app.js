@@ -32,6 +32,11 @@ app.use(locals);
 app.use(routes.home.single, indexRouter);
 app.use(routes.users.single, usersRouter);
 
+// test
+app.use('/test', (req, res) => {
+  res.render('test');
+})
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
