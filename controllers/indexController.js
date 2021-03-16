@@ -38,3 +38,7 @@ export const logout = (req, res) => {
     // TODO : Process Logout
     res.redirect(routes.home);
 }
+
+export const help = (req, res) => {
+    res.render('help');
+}

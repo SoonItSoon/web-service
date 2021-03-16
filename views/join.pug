@@ -1,18 +1,19 @@
-extends _bootstrap
+extends ./layouts/main
 append styles
-	link(rel='stylesheet', href='/stylesheets/home.css')
-block body  
-	include ./partials/navbar
-	.container-fluid
-		.row
-			include ./partials/sidebar
-			.col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
-				h1.page-header Join
-				.form-container
-					form(action=routes.join.href, method='post')
-						input(type="text", name='name', placeholder='Full Name', required=true)
-						input(type="email", name='email', placeholder='Email', required=true)
-						input(type="password", name='password', placeholder='Password', required=true)
-						input(type="password", name='password2', placeholder='Verify Password', required=true)
-						input(type="submit", value='Join Now')
-					include partials/socialLogin
+	link(href='/stylesheets/join.css', rel='stylesheet')
+block content
+	.container
+		form.form-signin(action=routes.join.href, method='post')
+			h2.form-signin-heading Enter for join in
+			label.sr-only(for='inputName') Full name
+			input#inputName.form-control(type="text", name='name', placeholder='Full name', required=true, autofocus=true)
+			label.sr-only(for='inputEmail') Email address
+			input#inputEmail.form-control(type='email', name='email', placeholder='Email address', required=true)
+			label.sr-only(for='inputPassword') Password
+			input#inputPassword.form-control(type='password', name='password' placeholder='Password', required=true)
+			label.sr-only(for='inputPassword2') Verify password 
+			input#inputPassword2.form-control(type='password', name='password2' placeholder='Verify password', required=true)
+			button.btn.btn-lg.btn-primary.btn-block(type='submit') Join in
+			button.btn.btn-lg.btn-default.btn-block(type='submit')
+				i.fab.fa-google
+					span Continue with Google

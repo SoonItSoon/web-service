@@ -1,12 +1,13 @@
 import express from 'express';
 import routes from '../routes';
-import { getJoin, getLogin, home, logout } from '../controllers/indexController';
+import { getJoin, getLogin, help, home, logout } from '../controllers/indexController';
 
-const globalRouter = express.Router();
+const indexRouter = express.Router();
 
-globalRouter.get(routes.home.single, home);
-globalRouter.get(routes.join.single, getJoin);
-globalRouter.get(routes.login.single, getLogin);
-globalRouter.get(routes.logout.single, logout);
+indexRouter.get(routes.home.single, home);
+indexRouter.get(routes.join.single, getJoin);
+indexRouter.get(routes.login.single, getLogin);
+indexRouter.get(routes.logout.single, logout);
+indexRouter.get(routes.help.single, help);
 
-export default globalRouter;
+export default indexRouter;

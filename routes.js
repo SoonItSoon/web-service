@@ -3,6 +3,7 @@ const HOME = '/';
 const JOIN = '/join';
 const LOGIN = '/login';
 const LOGOUT = '/logout';
+const HELP = '/help';
 
 // Users
 const USERS = '/users';
@@ -26,6 +27,10 @@ const routes = {
     logout: {
         single: LOGOUT,
         href: LOGOUT
+    },
+    help: {
+        single: HELP,
+        href: HELP
     },
     users: {
         single: USERS,

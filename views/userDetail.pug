@@ -1,8 +1,5 @@
-extends _bootstrap
-append styles
-	link(rel='stylesheet', href='/stylesheets/home.css')
-block body  
-	include ./partials/navbar
+extends ./layouts/main
+block content
 	.container-fluid
 		.row
 			include ./partials/sidebar
