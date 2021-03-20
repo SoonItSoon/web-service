@@ -1,12 +1,12 @@
 import routes from "../routes";
 
-export const userDetail = (req, res) => {
+export const getUserDetail = (req, res) => {
     res.render('userDetail', { pageTitle: 'User Detail' });
 }
-export const postDetail = (req, res) => {
+export const postUserDetail = (req, res) => {
     const { body: id } = req;
     res.render('userDetail', { pageTitle: 'User Detail' });
 }
-export const editProfile = (req, res) => {
+export const getEditProfile = (req, res) => {
     res.render('editProfile', { pageTitle: 'Edit Profile' });
 }

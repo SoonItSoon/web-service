@@ -1,11 +1,11 @@
 import express from 'express';
 import routes from '../routes';
-import { editProfile, postDetail, userDetail } from '../controllers/userController';
+import { getEditProfile, postUserDetail, getUserDetail } from '../controllers/userController';
 
 const userRouter = express.Router();
 
-userRouter.get(routes.editProfile.single, editProfile);
-userRouter.get(routes.userDetail.single(), userDetail);
-userRouter.post(routes.userDetail.single(), postDetail);
+userRouter.get(routes.editProfile.single, getEditProfile);
+userRouter.get(routes.userDetail.single(), getUserDetail);
+userRouter.post(routes.userDetail.single(), postUserDetail);
 
 export default userRouter;

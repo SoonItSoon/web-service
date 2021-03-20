@@ -1,14 +1,14 @@
 import routes from "../routes";
 
-export const home = (req, res) => {
+export const getHome = (req, res) => {
     res.render('home', { pageTitle: 'Home'});
 }
 
-export const getJoin = (req, res) => {
-    res.render('join', { pageTitle: 'Join' });
+export const getSignUp = (req, res) => {
+    res.render('sign-up', { pageTitle: 'Sign Up' });
 }
 
-export const postJoin  = (req, res) => {
+export const postSignUp  = (req, res) => {
     // 계정 생성 정보
     const {
         body: { name, email, password, password2 }
@@ -22,23 +22,23 @@ export const postJoin  = (req, res) => {
     } else {
         // TODO : Register User
         // TODO : Log User In
-        res.redirect(routes.home);
+        res.redirect(routes.home.href);
     }
 }
 
-export const getLogin = (req, res) => {
-    res.render('login', { pageTitle: 'Login' });
+export const getSignIn = (req, res) => {
+    res.render('sign-in', { pageTitle: 'Sign In' });
 }
 
-export const postLogin = (req, res) => {
-    res.redirect(routes.home);
+export const postSignIn = (req, res) => {
+    res.redirect(routes.home.href);
 }
 
-export const logout = (req, res) => {
+export const getSignOut = (req, res) => {
     // TODO : Process Logout
-    res.redirect(routes.home);
+    res.redirect(routes.home.href);
 }
 
-export const help = (req, res) => {
+export const getHelp = (req, res) => {
     res.render('help');
 }

@@ -1,8 +1,8 @@
 // Global
 const HOME = '/';
-const JOIN = '/join';
-const LOGIN = '/login';
-const LOGOUT = '/logout';
+const SIGNUP = '/sign-up';
+const SIGNIN = '/sign-in';
+const SIGNOUT = '/sign-out';
 const HELP = '/help';
 
 // Users
@@ -16,17 +16,17 @@ const routes = {
         single: HOME,
         href: HOME
     },
-    join: {
-        single: JOIN,
-        href: JOIN
+    signup: {
+        single: SIGNUP,
+        href: SIGNUP
     },
-    login: {
-        single: LOGIN,
-        href: LOGIN
+    signin: {
+        single: SIGNIN,
+        href: SIGNIN
     },
-    logout: {
-        single: LOGOUT,
-        href: LOGOUT
+    signout: {
+        single: SIGNOUT,
+        href: SIGNOUT
     },
     help: {
         single: HELP,
