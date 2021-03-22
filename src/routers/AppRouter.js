@@ -3,14 +3,14 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import HomeRouter from 'routers/HomeRouter';
 import ProfileRouter from 'routers/ProfileRouter';
 
-const AppRouter = () => {
+const AppRouter = ({auth}) => {
     return (
         <Router>
             <Route path='/profile'>
-                <ProfileRouter />
+                <ProfileRouter auth={auth} />
             </Route>
             <Route path='/'>
-                <HomeRouter />
+                <HomeRouter auth={auth} />
             </Route>
         </Router>
     )

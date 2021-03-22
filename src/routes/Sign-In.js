@@ -4,14 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Container, Button, Card } from 'react-bootstrap';
 import { authService, fbInstance } from 'fbInstance';
 import 'stylesheets/sign-in.css'
+import { useHistory } from 'react-router';
 
 const SignIn = () => {
     const [isLoading, setLoading] = useState(false);
+    const history = useHistory();
     
     const onClickSignIn = async () => {
         setLoading(true);
         const provider = new fbInstance.auth.GoogleAuthProvider();
         await authService.signInWithPopup(provider);
+        history.push('/');
     }
     
     return (

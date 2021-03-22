@@ -7,13 +7,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [init, setInit] = useState(false);
-  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [auth, setAuth] = useState(false);
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if(user) {
-        setLoggedIn(true);
+        setAuth(true);
       } else {
-        setLoggedIn(false);
+        setAuth(false);
       }
       setInit(true);
     });
@@ -24,8 +24,8 @@ function App() {
       {
         init ? 
         <>
-          <Navigator isLoggedIn={isLoggedIn} />
-          <AppRouter />
+          <Navigator auth={auth} />
+          <AppRouter auth={auth} />
           <AppFooter />
         </>
         : "Loading..."

@@ -1,16 +1,29 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Profile from 'routes/Profile';
 import EditProfile from 'routes/EditProfile';
+import Home from 'routes/Home';
 
-const ProfileRouter = () => {
+const ProfileRouter = ({auth}) => {
     return (
         <Router>
             <Route exact path='/profile'>
-                <Profile />
+                { auth ?
+                    (
+                        <Profile />
+                    ) : (
+                        <Home />
+                    )
+                }    
             </Route>
             <Route exact path='/profile/edit'>
-                <EditProfile />
+                { auth ?
+                    (
+                        <EditProfile />
+                    ) : (
+                        <Home />
+                    )
+                }    
             </Route>
         </Router>
     )
