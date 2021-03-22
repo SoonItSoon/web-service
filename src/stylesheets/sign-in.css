@@ -1,0 +1,19 @@
+.container-signin{
+    height: 80vh;
+    /* background-color: #353A3F; */
+    display: flex;
+    justify-content: center;
+}
+
+.card-signin{
+    padding: 5em;
+    align-self: center;
+    width: 30rem;
+}
+
+.button-signin{
+    width: 100%;
+}
+.button-signin span {
+    margin-left: 1rem;
+}
