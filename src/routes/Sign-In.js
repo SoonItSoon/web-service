@@ -5,6 +5,7 @@ import { Container, Button, Card } from 'react-bootstrap';
 import { authService, fbInstance } from 'fbInstance';
 import 'stylesheets/sign-in.css'
 import { useHistory } from 'react-router';
+import urls from 'urls';
 
 const SignIn = () => {
     const [isLoading, setLoading] = useState(false);
@@ -14,7 +15,7 @@ const SignIn = () => {
         setLoading(true);
         const provider = new fbInstance.auth.GoogleAuthProvider();
         await authService.signInWithPopup(provider);
-        history.push('/');
+        history.push(urls.home);
     }
     
     return (

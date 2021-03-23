@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Profile from 'routes/Profile';
 import EditProfile from 'routes/EditProfile';
 import Home from 'routes/Home';
+import urls from 'urls';
 
 const ProfileRouter = ({auth}) => {
     return (
         <Router>
-            <Route exact path='/profile'>
+            <Route exact path={urls.profile}>
                 { auth ?
                     (
                         <Profile />
@@ -16,7 +17,7 @@ const ProfileRouter = ({auth}) => {
                     )
                 }    
             </Route>
-            <Route exact path='/profile/edit'>
+            <Route exact path={urls.editProfile}>
                 { auth ?
                     (
                         <EditProfile />
