@@ -1,0 +1,11 @@
+.loading__container{
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+.loading__container span{
+    font-size: xx-large;
+}

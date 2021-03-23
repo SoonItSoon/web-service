@@ -4,6 +4,7 @@ import Navigator from 'partials/Navigator';
 import AppRouter from 'routers/AppRouter';
 import { authService } from 'fbInstance';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Loading from 'routes/Loading';
 
 function App() {
   const [init, setInit] = useState(false);
@@ -28,7 +29,11 @@ function App() {
           <AppRouter auth={auth} />
           <AppFooter />
         </>
-        : "Loading..."
+        :
+        <>
+          <Loading />
+          <AppFooter />
+        </>
       }
     </>
   );

@@ -18,11 +18,11 @@ const SignIn = () => {
     }
     
     return (
-        <Container className='container-signin'>
-            <Card className="bg-dark text-white card-signin">
-                <Card.Title className='text-center'>Sign In</Card.Title>
+        <Container className='signin__container'>
+            <Card className="bg-dark text-white signin__card">
+                <Card.Title className='text-center signin__card__title'>Sign In</Card.Title>
                 <Button
-                className='button-signin'
+                className='signin__card__btn'
                 variant="light"
                 disabled={isLoading}
                 onClick={!isLoading ? onClickSignIn : null}>

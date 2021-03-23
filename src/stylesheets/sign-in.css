@@ -1,19 +1,24 @@
-.container-signin{
+.signin__container{
     height: 80vh;
-    /* background-color: #353A3F; */
     display: flex;
     justify-content: center;
 }
 
-.card-signin{
-    padding: 5em;
+.signin__card{
+    padding: 2em;
     align-self: center;
     width: 30rem;
+    border-radius: 1rem !important;
 }
 
-.button-signin{
-    width: 100%;
+.signin__card__title {
+    font-size: 1.5rem !important;
 }
-.button-signin span {
+
+.signin__card__btn{
+    width: 100%;
+    margin-top: 1rem;
+}
+.signin__card__btn span {
     margin-left: 1rem;
 }
