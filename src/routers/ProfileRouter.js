@@ -1,11 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, useHistory } from 'react-router-dom';
 import Profile from 'routes/Profile';
 import EditProfile from 'routes/EditProfile';
-import Home from 'routes/Home';
 import urls from 'urls';
 
 const ProfileRouter = ({auth}) => {
+    const history = useHistory();
     return (
         <Router>
             <Route exact path={urls.profile}>
@@ -13,7 +13,7 @@ const ProfileRouter = ({auth}) => {
                     (
                         <Profile />
                     ) : (
-                        <Home />
+                        history.push(urls.home)
                     )
                 }    
             </Route>
@@ -22,7 +22,7 @@ const ProfileRouter = ({auth}) => {
                     (
                         <EditProfile />
                     ) : (
-                        <Home />
+                        history.push(urls.home)
                     )
                 }    
             </Route>

@@ -20,11 +20,11 @@ const SignIn = () => {
     
     return (
         <Container className='signin__container'>
-            <Card className="bg-dark text-white signin__card">
+            <Card className="text-dark signin__card">
                 <Card.Title className='text-center signin__card__title'>Sign In</Card.Title>
                 <Button
                 className='signin__card__btn'
-                variant="light"
+                variant="outline-dark"
                 disabled={isLoading}
                 onClick={!isLoading ? onClickSignIn : null}>
                 {isLoading ? 'Wait for Countinue...' 
