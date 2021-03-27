@@ -20,7 +20,7 @@ const SignIn = () => {
     
     return (
         <Container className='signin__container'>
-            <Card className="text-dark signin__card">
+            <Card className="text-dark signin__card" border='light'>
                 <Card.Title className='text-center signin__card__title'>Sign In</Card.Title>
                 <Button
                 className='signin__card__btn'
