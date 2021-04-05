@@ -1,26 +1,26 @@
 import React from "react";
 import { Container, Button, Card } from "react-bootstrap";
-import "stylesheets/Help.css";
+import "stylesheets/Timeline.css";
 import { useHistory } from "react-router";
 import useTitle from "@unsooks/use-title";
 import locals from "locals";
 import urls from "urls";
 
-const Help = () => {
-    useTitle(`Help | ${locals.siteName}`);
+const Timeline = () => {
+    useTitle(`Timeline | ${locals.siteName}`);
     const history = useHistory();
     const goHome = () => {
         history.push(urls.home);
     };
 
     return (
-        <Container className="help__container">
-            <Card className="text-dark help__card">
-                <Card.Title className="text-center help__card__title">
-                    Help
+        <Container className="timeline__container">
+            <Card className="text-dark timeline__card">
+                <Card.Title className="text-center timeline__card__title">
+                    Timeline
                 </Card.Title>
                 <Button
-                    className="help__card__btn"
+                    className="timeline__card__btn"
                     variant="outline-light"
                     onClick={goHome}
                 >
@@ -31,4 +31,4 @@ const Help = () => {
     );
 };
 
-export default Help;
+export default Timeline;

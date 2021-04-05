@@ -1,27 +1,29 @@
-.help__container {
+.notfound__container {
     display: flex;
     justify-content: center;
     height: 85vh;
     width: 100vh;
 }
 
-.help__card {
+.notfound__card {
     background-color: var(--main-bg-dark-more) !important;
     border-color: var(--main-bg-dark-more) !important;
     padding: 2em;
     align-self: center;
-    width: 30rem;
+    width: 100%;
     border-radius: 1rem !important;
     box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.5),
         0 8px 16px -8px rgba(0, 0, 0, 0.5);
 }
 
-.help__card__title {
-    font-size: 2rem !important;
+.notfound__card__title {
+    font-size: 6rem !important;
     color: var(--main-yellow);
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 }
 
-.help__card__btn {
+.notfound__card__btn {
     width: 100%;
     margin-top: 1rem;
 }

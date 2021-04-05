@@ -9,11 +9,14 @@ import useTitle from "@unsooks/use-title";
 import locals from "locals";
 import urls from "urls";
 
-const SignIn = () => {
+const SignIn = ({ auth }) => {
     useTitle(`Sign In | ${locals.siteName}`);
 
     const [isLoading, setLoading] = useState(false);
     const history = useHistory();
+
+    if (auth !== null) {
+    }
 
     const onClickSignIn = async () => {
         setLoading(true);

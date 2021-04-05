@@ -1,11 +1,11 @@
-.help__container {
+.timeline__container {
     display: flex;
     justify-content: center;
     height: 85vh;
     width: 100vh;
 }
 
-.help__card {
+.timeline__card {
     background-color: var(--main-bg-dark-more) !important;
     border-color: var(--main-bg-dark-more) !important;
     padding: 2em;
@@ -16,12 +16,12 @@
         0 8px 16px -8px rgba(0, 0, 0, 0.5);
 }
 
-.help__card__title {
+.timeline__card__title {
     font-size: 2rem !important;
     color: var(--main-yellow);
 }
 
-.help__card__btn {
+.timeline__card__btn {
     width: 100%;
     margin-top: 1rem;
 }
