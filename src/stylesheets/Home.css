@@ -51,3 +51,20 @@
     border-color: var(--main-bg-dark) !important;
     color: var(--main-yellow) !important;
 }
+
+.home__card__div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.home__card__span {
+    font-size: 3rem;
+}
+
+.home__card__btn-signin {
+    width: 70%;
+}

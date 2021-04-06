@@ -9,12 +9,12 @@ import SignIn from "routes/Sign-In";
 import Timeline from "routes/Timeline";
 import urls from "urls";
 
-const AppRouter = ({ auth }) => {
+const AppRouter = ({ auth, userObj }) => {
     return (
         <Router>
             <Switch>
                 <Route exact path={urls.home}>
-                    <Home />
+                    <Home auth={auth} />
                 </Route>
                 <Route exact path={urls.help}>
                     <Help />
@@ -23,7 +23,7 @@ const AppRouter = ({ auth }) => {
                     <SignIn auth={auth} />
                 </Route>
                 <Route exact path={urls.timeline}>
-                    <Timeline auth={auth} />
+                    <Timeline auth={auth} userObj={userObj} />
                 </Route>
                 <Route exact path={urls.interest}>
                     <Interest auth={auth} />

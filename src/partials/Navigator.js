@@ -1,13 +1,8 @@
 import React from "react";
 import urls from "urls";
-import { authService } from "fbInstance";
 import { Nav, Navbar } from "react-bootstrap";
 
-const Navigator = ({ auth }) => {
-    const onSignOutClick = async () => {
-        await authService.signOut();
-    };
-
+const Navigator = ({ auth, userObj, signOut }) => {
     return (
         <Navbar bg="dark" variant="dark">
             <Navbar.Brand href={urls.home}>SoonItSoon</Navbar.Brand>
@@ -16,7 +11,10 @@ const Navigator = ({ auth }) => {
                 {auth ? (
                     <>
                         <Nav.Item>
-                            <Nav.Link href={urls.home} onClick={onSignOutClick}>
+                            <Nav.Link href="#">{userObj.displayName}</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link href={urls.home} onClick={signOut}>
                                 Sign Out
                             </Nav.Link>
                         </Nav.Item>

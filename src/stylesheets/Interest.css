@@ -1,11 +1,11 @@
-.timeline__container {
+.interest__container {
     display: flex;
     justify-content: center;
     height: 85vh;
     width: 100vh;
 }
 
-.timeline__card {
+.interest__card {
     background-color: var(--main-bg-dark-more) !important;
     border-color: var(--main-bg-dark-more) !important;
     padding: 2em;
@@ -16,12 +16,12 @@
         0 8px 16px -8px rgba(0, 0, 0, 0.5);
 }
 
-.timeline__card__title {
+.interest__card__title {
     font-size: 2rem !important;
     color: var(--main-yellow);
 }
 
-.timeline__card__btn {
+.interest__card__btn {
     width: 100%;
     margin-top: 1rem;
 }

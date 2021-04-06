@@ -9,24 +9,36 @@ import Loading from "routes/Loading";
 
 function App() {
     const [init, setInit] = useState(false);
-    const [auth, setAuth] = useState(false);
+    const [userObj, setUserObj] = useState(null);
     useEffect(() => {
         authService.onAuthStateChanged((user) => {
             if (user) {
-                setAuth(true);
+                setUserObj({
+                    displayName: user.displayName,
+                    uid: user.uid,
+                });
             } else {
-                setAuth(false);
+                setUserObj(null);
             }
             setInit(true);
         });
     }, []);
 
+    const signOut = async () => {
+        await authService.signOut();
+        setUserObj(null);
+    };
+
     return (
         <>
             {init ? (
                 <>
-                    <Navigator auth={auth} />
-                    <AppRouter auth={auth} />
+                    <Navigator
+                        auth={Boolean(userObj)}
+                        userObj={userObj}
+                        signOut={signOut}
+                    />
+                    <AppRouter auth={Boolean(userObj)} userObj={userObj} />
                 </>
             ) : (
                 <>
