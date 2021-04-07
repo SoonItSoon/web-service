@@ -79,13 +79,6 @@ const Timeline = ({ auth, userObj }) => {
                 <Card.Title className="text-center timeline__card__title">
                     Timeline
                 </Card.Title>
-                <Button
-                    className="timeline__card__btn"
-                    variant="outline-light"
-                    onClick={goHome}
-                >
-                    Go Back Home
-                </Button>
                 <div className="timeline__datePicker__container">
                     <span
                         className="timeline__datePicker__span"
@@ -108,6 +101,13 @@ const Timeline = ({ auth, userObj }) => {
                         </span>
                     </div>
                 )}
+                <Button
+                    className="timeline__card__btn"
+                    variant="outline-light"
+                    onClick={goHome}
+                >
+                    Go Back Home
+                </Button>
             </Card>
         </Container>
     );
