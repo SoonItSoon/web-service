@@ -8,52 +8,69 @@ import locals from "locals";
 import urls from "urls";
 import { dbService } from "fbInstance";
 import MapBuilder from "components/MapBuilder";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Timeline = ({ auth, userObj }) => {
     useTitle(`Timeline | ${locals.siteName}`);
     const history = useHistory();
-    const goHome = () => {
-        history.push(urls.home);
-    };
     if (auth === false) {
         goHome();
     }
+    const goHome = () => {
+        history.push(urls.home);
+    };
 
-    const [tlList, setTLList] = useState([]);
     const [initList, setInitList] = useState(false);
-    const [tlDate, setTLDate] = useState("2021-04-06");
+    const [tlList, setTLList] = useState([]);
+    const [initDate, setInitDate] = useState(false);
+    const [tlDate, setTLDate] = useState("");
+    const [startDate, setStartDate] = useState(new Date());
 
-    const getTimeline = async () => {
-        await dbService
-            .collection(`${userObj.uid}_TL`)
-            .where("date", "==", "2021-04-06")
+    const changeDateString = (targetDate) => {
+        const year = targetDate.getFullYear();
+        const month = targetDate.getMonth() + 1;
+        const date = targetDate.getDate();
+        const dateString = `${year}-${month < 10 ? "0" + month : month}-${
+            date < 10 ? "0" + date : date
+        }`;
+        setTLDate(dateString);
+        setInitDate(true);
+    };
+
+    const getTimeline = () => {
+        if (tlDate === "") {
+            return;
+        }
+        dbService
+            .collection("userdata")
+            .doc(`${userObj.uid}`)
+            .collection("timeline")
+            .where("date", "==", tlDate)
             .orderBy("time")
             .onSnapshot((snapshot) => {
                 const tmpList = snapshot.docs.map((doc) => ({
-                    ...doc.data(),
                     id: doc.id,
+                    ...doc.data(),
                 }));
                 setTLList(tmpList);
-                setInitList(true);
+                if (tmpList.length !== 0) {
+                    setInitList(true);
+                }
             });
     };
 
     useEffect(() => {
-        getTimeline();
-    }, []);
-
-    const showMap = () => {
-        if (initList) {
+        if (initDate === false) {
+            changeDateString(new Date());
         }
-        // show Map
-        var container = document.getElementById("map"); //지도를 담을 영역의 DOM 레퍼런스
-        var options = {
-            //지도를 생성할 때 필요한 기본 옵션
-            center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
-            level: 3, //지도의 레벨(확대, 축소 정도)
-        };
+        getTimeline();
+    }, [tlDate]);
 
-        var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+    const showMap = (selectedDate) => {
+        setStartDate(selectedDate);
+        setInitList(false);
+        changeDateString(selectedDate);
     };
 
     return (
@@ -69,14 +86,28 @@ const Timeline = ({ auth, userObj }) => {
                 >
                     Go Back Home
                 </Button>
-                <Button
-                    className="timeline__card__btn"
-                    variant="outline-light"
-                    onClick={showMap}
-                >
-                    Show Map
-                </Button>
-                {initList && <MapBuilder tlList={tlList} />}
+                <div className="timeline__datePicker__container">
+                    <span
+                        className="timeline__datePicker__span"
+                        variant="outline-light"
+                    >
+                        Select Date :
+                    </span>
+                    <DatePicker
+                        className="timeline__datePicker__picker"
+                        selected={startDate}
+                        onChange={showMap}
+                    />
+                </div>
+                {initList ? (
+                    <MapBuilder tlList={tlList} />
+                ) : (
+                    <div className="timeline__map">
+                        <span className="timeline__map__span">
+                            해당 날짜에 동선이 없습니다.
+                        </span>
+                    </div>
+                )}
             </Card>
         </Container>
     );

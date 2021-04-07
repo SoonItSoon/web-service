@@ -3,21 +3,34 @@ import React, { useState } from "react";
 import $script from "scriptjs";
 
 const MapBuilder = ({ tlList }) => {
-    const [linePath, setLintPath] = useState([]);
+    const [linePath, setLinePath] = useState([]);
     const [loadMap, setLoadMap] = useState(false);
+    const [loadFirst, setLoadFirst] = useState(true);
     const kakao_url = `http://dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=61375cd8589972b3a28cb21d56798474`;
 
     $script(kakao_url, () => {
         /*global kakao*/
         kakao.maps.load(function () {
+            if (!loadFirst) {
+                return;
+            }
+            setLoadFirst(false);
             let container = document.getElementById("map");
-            let options = {
-                center: new kakao.maps.LatLng(
-                    tlList[0].latitude,
-                    tlList[0].longitude
-                ),
-                level: 7,
-            };
+            let options;
+            if (tlList === []) {
+                options = {
+                    center: new kakao.maps.LatLng(37.49, 126.95),
+                    level: 7,
+                };
+            } else {
+                options = {
+                    center: new kakao.maps.LatLng(
+                        tlList[0].latitude,
+                        tlList[0].longitude
+                    ),
+                    level: 7,
+                };
+            }
 
             const map = new kakao.maps.Map(container, options);
 
@@ -28,7 +41,7 @@ const MapBuilder = ({ tlList }) => {
                     timeline.longitude
                 );
 
-                // setLintPath((prev) => [
+                // setLinePath((prev) => [
                 //     ...prev,
                 //     new kakao.maps.LatLng(
                 //         timeline.latitude,
@@ -74,7 +87,7 @@ const MapBuilder = ({ tlList }) => {
             //     strokeStyle: "solid", // 선의 스타일입니다
             // });
 
-            // // 지도에 선을 표시합니다
+            // 지도에 선을 표시합니다
             // polyline.setMap(map);
 
             setLoadMap(true);
