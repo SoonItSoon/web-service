@@ -9,6 +9,7 @@ import urls from "urls";
 const NotFound = () => {
     useTitle(`Page Not Found | ${locals.siteName}`);
     const history = useHistory();
+    history.push(urls.notfound);
     const goHome = () => {
         history.push(urls.home);
     };

@@ -10,11 +10,12 @@ const MapBuilder = ({ tlList }) => {
 
     $script(kakao_url, () => {
         /*global kakao*/
-        kakao.maps.load(function () {
+        kakao.maps.load(() => {
             if (!loadFirst) {
                 return;
             }
             setLoadFirst(false);
+            console.log(`loadFirst : ${loadFirst}`);
             let container = document.getElementById("map");
             let options;
             if (tlList === []) {
@@ -51,11 +52,24 @@ const MapBuilder = ({ tlList }) => {
 
                 // 마커를 생성합니다
                 var marker = new kakao.maps.Marker({
+                    map: map,
                     position: markerPosition,
                 });
 
                 // 마커에 커서가 오버됐을 때 마커 위에 표시할 인포윈도우를 생성합니다
-                var iwContent = `<div style="padding:5px;">${timeline.time}</div>`; // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+                const tmpTime = timeline.time.split(":");
+                const marckerText = `${tmpTime[0]}시 ${tmpTime[1]}분`;
+                var iwContent = `<div class="timeline__map__marker">${marckerText} 위치</div>`; // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+
+                // var customOverlay = new kakao.maps.CustomOverlay({
+                //     map: map,
+                //     content: `<div class="timeline__map__marker">${marckerText} 위치</div>`,
+                //     position: markerPosition,
+                //     xAnchor: 0.5,
+                //     yAnchor: 1,
+                //     zIndex: 3,
+                // });
+                // customOverlay.setVisible(0);
 
                 // 인포윈도우를 생성합니다
                 var infowindow = new kakao.maps.InfoWindow({
@@ -66,16 +80,18 @@ const MapBuilder = ({ tlList }) => {
                 kakao.maps.event.addListener(marker, "mouseover", function () {
                     // 마커에 마우스오버 이벤트가 발생하면 인포윈도우를 마커위에 표시합니다
                     infowindow.open(map, marker);
+                    // customOverlay.setVisible(1);
                 });
 
                 // 마커에 마우스아웃 이벤트를 등록합니다
                 kakao.maps.event.addListener(marker, "mouseout", function () {
                     // 마커에 마우스아웃 이벤트가 발생하면 인포윈도우를 제거합니다
                     infowindow.close();
+                    // customOverlay.setVisible(0);
                 });
 
                 // 마커가 지도 위에 표시되도록 설정합니다
-                marker.setMap(map);
+                // marker.setMap(map);
             });
 
             // 지도에 표시할 선을 생성합니다

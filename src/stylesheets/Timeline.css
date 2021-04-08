@@ -3,6 +3,7 @@
     justify-content: center;
     height: 85vh;
     width: 100vh;
+    user-select: none;
 }
 
 .timeline__card {
@@ -42,6 +43,12 @@
     color: #fff;
     font-size: 2rem;
     margin-top: 2rem;
+}
+
+.timeline__map__marker {
+    padding: 5px;
+    /* color: var(--main-yellow); */
+    /* background-color: var(--main-bg-dark-more); */
 }
 
 .timeline__datePicker__container {
