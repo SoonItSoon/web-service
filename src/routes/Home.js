@@ -43,6 +43,45 @@ const Home = ({ auth }) => {
     const goSearch = () => {
         history.push(urls.search);
     };
+
+    const menuObj = [
+        {
+            id: 0,
+            title: "일일 브리핑 정보",
+            desc: "오늘 하루 재난 정보를 한눈에",
+            icon: faCalendarAlt,
+            onClick: goBriefing,
+        },
+        {
+            id: 1,
+            title: "관심분야 정보",
+            desc: "맞춤형 재난 정보 제공",
+            icon: faUserCircle,
+            onClick: goInterest,
+        },
+        {
+            id: 2,
+            title: "위험 동선 확인",
+            desc: "보건소 방문 요청 확인",
+            icon: faExclamationTriangle,
+            onClick: goCheckSafety,
+        },
+        {
+            id: 3,
+            title: "개인 동선",
+            desc: "날짜별 나의 동선 확인",
+            icon: faMapMarkedAlt,
+            onClick: goTimeline,
+        },
+        {
+            id: 4,
+            title: "재난문자 검색",
+            desc: "키워드별 재난문자 검색",
+            icon: faSearch,
+            onClick: goSearch,
+        },
+    ];
+
     return (
         <Container className="container home__container">
             <Jumbotron className="home__jumbotron">
