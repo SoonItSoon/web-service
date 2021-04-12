@@ -25,17 +25,23 @@ import {
 const Home = ({ auth }) => {
     useTitle(`Home | ${locals.siteName}`);
     const history = useHistory();
-    const goTimeline = () => {
-        history.push(urls.timeline);
+    const goSignIn = () => {
+        history.push(urls.signin);
+    };
+    const goBriefing = () => {
+        history.push(urls.briefing);
     };
     const goInterest = () => {
         history.push(urls.interest);
     };
+    const goCheckSafety = () => {
+        history.push(urls.safety);
+    };
+    const goTimeline = () => {
+        history.push(urls.timeline);
+    };
     const goSearch = () => {
         history.push(urls.search);
-    };
-    const goSignIn = () => {
-        history.push(urls.signin);
     };
     return (
         <Container className="container home__container">
@@ -58,7 +64,7 @@ const Home = ({ auth }) => {
                             <div className="home__carousel__btn-div">
                                 <Button
                                     className="home__carousel__btn"
-                                    // onClick={}
+                                    onClick={goBriefing}
                                 >
                                     <FontAwesomeIcon icon={faCalendarAlt} />
                                 </Button>
@@ -86,7 +92,7 @@ const Home = ({ auth }) => {
                             <div className="home__carousel__btn-div">
                                 <Button
                                     className="home__carousel__btn"
-                                    // onClick={}
+                                    onClick={goCheckSafety}
                                 >
                                     <FontAwesomeIcon
                                         icon={faExclamationTriangle}

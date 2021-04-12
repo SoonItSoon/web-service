@@ -1,5 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Briefing from "routes/Briefing";
+import CheckSafety from "routes/CheckSafety";
 import Help from "routes/Help";
 import Home from "routes/Home";
 import Interest from "routes/Interest";
@@ -22,11 +24,17 @@ const AppRouter = ({ auth, userObj }) => {
                 <Route exact path={urls.signin}>
                     <SignIn auth={auth} />
                 </Route>
-                <Route exact path={urls.timeline}>
-                    <Timeline auth={auth} userObj={userObj} />
+                <Route exact path={urls.briefing}>
+                    <Briefing auth={auth} />
                 </Route>
                 <Route exact path={urls.interest}>
                     <Interest auth={auth} userObj={userObj} />
+                </Route>
+                <Route exact path={urls.safety}>
+                    <CheckSafety auth={auth} />
+                </Route>
+                <Route exact path={urls.timeline}>
+                    <Timeline auth={auth} userObj={userObj} />
                 </Route>
                 <Route exact path={urls.search}>
                     <Search />

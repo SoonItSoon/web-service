@@ -2,8 +2,10 @@ const urls = {
     home: "/",
     signin: "/sign-in",
     help: "/help",
-    timeline: "/timeline",
+    briefing: "/briefing",
     interest: "/interest",
+    safety: "/check-safety",
+    timeline: "/timeline",
     search: "/search",
     notfound: "/404",
 };
