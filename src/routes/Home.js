@@ -13,6 +13,14 @@ import "stylesheets/Home.css";
 import urls from "urls";
 import { useHistory } from "react-router";
 import logo from "assets/soonitsoon_logo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faCalendarAlt,
+    faExclamationTriangle,
+    faMapMarkedAlt,
+    faSearch,
+    faUserCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Home = ({ auth }) => {
     useTitle(`Home | ${locals.siteName}`);
@@ -52,10 +60,10 @@ const Home = ({ auth }) => {
                                     className="home__carousel__btn"
                                     // onClick={}
                                 >
-                                    일일 브리핑 정보
+                                    <FontAwesomeIcon icon={faCalendarAlt} />
                                 </Button>
                             </div>
-                            <Carousel.Caption>
+                            <Carousel.Caption className="home__carousel__caption">
                                 <h3>일일 브리핑 정보</h3>
                                 <p>오늘 하루 재난 정보를 한눈에</p>
                             </Carousel.Caption>
@@ -66,10 +74,10 @@ const Home = ({ auth }) => {
                                     className="home__carousel__btn"
                                     onClick={goInterest}
                                 >
-                                    관심분야 정보
+                                    <FontAwesomeIcon icon={faUserCircle} />
                                 </Button>
                             </div>
-                            <Carousel.Caption>
+                            <Carousel.Caption className="home__carousel__caption">
                                 <h3>관심분야 정보</h3>
                                 <p>맞춤형 재난 정보 제공</p>
                             </Carousel.Caption>
@@ -80,10 +88,12 @@ const Home = ({ auth }) => {
                                     className="home__carousel__btn"
                                     // onClick={}
                                 >
-                                    위험 동선 확인
+                                    <FontAwesomeIcon
+                                        icon={faExclamationTriangle}
+                                    />
                                 </Button>
                             </div>
-                            <Carousel.Caption>
+                            <Carousel.Caption className="home__carousel__caption">
                                 <h3>위험 동선 확인</h3>
                                 <p>보건소 방문 요청 확인</p>
                             </Carousel.Caption>
@@ -94,10 +104,10 @@ const Home = ({ auth }) => {
                                     className="home__carousel__btn"
                                     onClick={goTimeline}
                                 >
-                                    개인 동선
+                                    <FontAwesomeIcon icon={faMapMarkedAlt} />
                                 </Button>
                             </div>
-                            <Carousel.Caption>
+                            <Carousel.Caption className="home__carousel__caption">
                                 <h3>개인 동선</h3>
                                 <p>날짜별 나의 동선 확인</p>
                             </Carousel.Caption>
@@ -109,10 +119,10 @@ const Home = ({ auth }) => {
                                     className="home__carousel__btn"
                                     onClick={goSearch}
                                 >
-                                    재난문자 검색
+                                    <FontAwesomeIcon icon={faSearch} />
                                 </Button>
                             </div>
-                            <Carousel.Caption>
+                            <Carousel.Caption className="home__carousel__caption">
                                 <h3>재난문자 검색</h3>
                                 <p>키워드별 재난문자 검색</p>
                             </Carousel.Caption>

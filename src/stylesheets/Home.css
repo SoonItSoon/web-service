@@ -22,7 +22,7 @@
 .home__jumbotron__desc {
     margin-top: 1rem;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 300;
 }
 
@@ -59,7 +59,7 @@
 .home__carousel__btn {
     position: relative;
     height: 100%;
-    width: 75%;
+    width: 70%;
     font-family: "Noto Sans KR", sans-serif;
     background-color: var(--main-bg-dark-more) !important;
     border-color: var(--main-bg-dark-more) !important;
@@ -96,11 +96,19 @@
     width: 70%;
 }
 
-.carousel-caption {
+.home__carousel__caption {
     position: static !important;
     top: 200%;
 }
 
-.carousel-indicators li {
+.home__carousel__caption h3 {
+    color: var(--main-yellow);
+}
+
+.home__carousel__caption p {
+    color: var(--main-yellow-dark);
+}
+
+.home__carousel li {
     background-color: var(--main-yellow) !important;
 }
