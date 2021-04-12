@@ -14,16 +14,16 @@ import "react-datepicker/dist/react-datepicker.css";
 const Timeline = ({ auth, userObj }) => {
     useTitle(`Timeline | ${locals.siteName}`);
     const history = useHistory();
-    if (auth === false) {
-        goHome();
-    }
     const goHome = () => {
         history.push(urls.home);
     };
+    if (auth === false) {
+        goHome();
+    }
 
-    const [initList, setInitList] = useState(false);
+    const [initTLList, setInitTLList] = useState(false);
     const [tlList, setTLList] = useState([]);
-    const [initDate, setInitDate] = useState(false);
+    const [initTLDate, setInitTLDate] = useState(false);
     const [tlDate, setTLDate] = useState("");
     const [startDate, setStartDate] = useState(new Date());
 
@@ -35,7 +35,7 @@ const Timeline = ({ auth, userObj }) => {
             date < 10 ? "0" + date : date
         }`;
         setTLDate(dateString);
-        setInitDate(true);
+        setInitTLDate(true);
     };
 
     const getTimeline = () => {
@@ -55,13 +55,13 @@ const Timeline = ({ auth, userObj }) => {
                 }));
                 setTLList(tmpList);
                 if (tmpList.length !== 0) {
-                    setInitList(true);
+                    setInitTLList(true);
                 }
             });
     };
 
     useEffect(() => {
-        if (initDate === false) {
+        if (initTLDate === false) {
             changeDateString(new Date());
         }
         getTimeline();
@@ -69,7 +69,7 @@ const Timeline = ({ auth, userObj }) => {
 
     const showMap = (selectedDate) => {
         setStartDate(selectedDate);
-        setInitList(false);
+        setInitTLList(false);
         changeDateString(selectedDate);
     };
 
@@ -92,7 +92,7 @@ const Timeline = ({ auth, userObj }) => {
                         onChange={showMap}
                     />
                 </div>
-                {initList ? (
+                {initTLList ? (
                     <MapBuilder tlList={tlList} />
                 ) : (
                     <div className="timeline__map">

@@ -1,5 +1,6 @@
 :root {
     --main-bg-dark: #3d3c38;
-    --main-bg-dark-more: #282724;
+    --main-bg-dark-more: rgb(40, 39, 36);
+    --main-bg-dark-more-shdow: rgba(40, 39, 36, 0.5);
     --main-yellow: #f9d342;
 }

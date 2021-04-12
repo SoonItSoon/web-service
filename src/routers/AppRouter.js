@@ -26,7 +26,7 @@ const AppRouter = ({ auth, userObj }) => {
                     <Timeline auth={auth} userObj={userObj} />
                 </Route>
                 <Route exact path={urls.interest}>
-                    <Interest auth={auth} />
+                    <Interest auth={auth} userObj={userObj} />
                 </Route>
                 <Route exact path={urls.search}>
                     <Search />

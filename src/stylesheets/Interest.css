@@ -5,13 +5,17 @@
     width: 100vh;
 }
 
+.interest__card,
+.interest__card-inner {
+    width: 100%;
+    border-radius: 1rem !important;
+}
+
 .interest__card {
     background-color: var(--main-bg-dark-more) !important;
     border-color: var(--main-bg-dark-more) !important;
     padding: 2em;
     align-self: center;
-    width: 30rem;
-    border-radius: 1rem !important;
     box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.5),
         0 8px 16px -8px rgba(0, 0, 0, 0.5);
 }
@@ -24,4 +28,35 @@
 .interest__card__btn {
     width: 100%;
     margin-top: 1rem;
+}
+
+.interest__card-inner {
+    box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.5),
+        0 8px 16px -8px rgba(0, 0, 0, 0.5) inset;
+    margin-bottom: 1rem;
+}
+.interest__card-inner:last-child {
+    margin-bottom: 0;
+}
+
+.interest__card-inner__title__div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.interest__card-inner__btn {
+    background-color: #fff !important;
+    border-color: var(--main-bg-dark-more) !important;
+    color: var(--main-bg-dark-more) !important;
+}
+
+.interest__card-inner__btn:hover,
+.interest__card-inner__btn:focus {
+    background-color: var(--main-bg-dark-more) !important;
+    border-color: var(--main-bg-dark-more) !important;
+    color: var(--main-yellow) !important;
+}
+
+.interest__card-inner__btn:focus {
+    box-shadow: var(--main-bg-dark-more-shdow) !important;
 }
