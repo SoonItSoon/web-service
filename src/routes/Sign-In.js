@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Container, Button, Card } from "react-bootstrap";
+import { Container, Button, Card, Spinner } from "react-bootstrap";
 import { authService, fbInstance } from "fbInstance";
 import "stylesheets/Sign-In.css";
 import { useHistory } from "react-router";
@@ -38,7 +38,16 @@ const SignIn = ({ auth }) => {
                     onClick={!isLoading ? onClickSignIn : null}
                 >
                     {isLoading ? (
-                        "Wait for Countinue..."
+                        <>
+                            <Spinner
+                                as="span"
+                                animation="border"
+                                size="sm"
+                                role="status"
+                                aria-hidden="true"
+                            />
+                            <span className="sr-only">Loading...</span>
+                        </>
                     ) : (
                         <>
                             <FontAwesomeIcon icon={faGoogle} />
