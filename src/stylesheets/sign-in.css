@@ -6,7 +6,7 @@
 }
 
 .signin__card {
-    background-color: var(--main-bg-dark-more) !important;
+    background: linear-gradient(var(--main-bg-dark), var(--main-bg-dark-more));
     border-color: var(--main-bg-dark-more) !important;
     padding: 2em;
     align-self: center;

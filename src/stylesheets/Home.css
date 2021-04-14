@@ -11,7 +11,11 @@
 .home__jumbotron {
     padding: 2rem !important;
     margin: 1rem 0 0 0 !important;
-    background-color: var(--main-bg-dark-more) !important;
+    background: linear-gradient(
+        var(--main-bg-dark),
+        var(--main-bg-dark),
+        var(--main-bg-dark-more)
+    ) !important;
     border-radius: 1rem 1rem 0 0 !important;
     display: flex;
     flex-direction: column;

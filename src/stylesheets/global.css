@@ -13,7 +13,11 @@ body {
 }
 
 .bg-dark {
-    background-color: var(--main-bg-dark) !important;
+    background: linear-gradient(
+        var(--main-bg-dark),
+        var(--main-bg-dark-more),
+        var(--main-bg-dark)
+    );
 }
 
 .navbar-dark .navbar-brand {
