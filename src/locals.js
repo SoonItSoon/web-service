@@ -1,5 +1,5 @@
 const locals = {
-    siteName: 'Soon It Soon'
+    siteName: "Soon It Soon",
 };
 
 export default locals;
