@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Button, Card, Row } from "react-bootstrap";
+import { Container, Button, Card, Row, Spinner } from "react-bootstrap";
 import "stylesheets/Interest.css";
 import { useHistory } from "react-router";
 import useTitle from "@unsooks/use-title";
@@ -82,7 +82,7 @@ const Interest = ({ auth, userObj }) => {
                     Interest
                 </Card.Title>
                 <Row>
-                    {initInterList &&
+                    {initInterList ? (
                         interList.map((element) => {
                             return (
                                 <InterestCard
@@ -94,7 +94,16 @@ const Interest = ({ auth, userObj }) => {
                                     ]}
                                 />
                             );
-                        })}
+                        })
+                    ) : (
+                        <Card className="interest__card-inner text-center">
+                            <Card.Body>
+                                <Spinner animation="border" role="status">
+                                    <span className="sr-only">Loading...</span>
+                                </Spinner>
+                            </Card.Body>
+                        </Card>
+                    )}
                     {interList.length < 3 && (
                         <Card className="interest__card-inner text-center">
                             <Card.Body>

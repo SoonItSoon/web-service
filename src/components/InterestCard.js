@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Button, Card, Modal, Spinner } from "react-bootstrap";
 import Loading from "routes/Loading";
+import useAxios from "@unsooks/use-axios";
 
 const InterestCard = ({ info, handleClick }) => {
     const { id, nickname, interest_string } = info;
@@ -13,6 +14,17 @@ const InterestCard = ({ info, handleClick }) => {
 
     const [init, setInit] = useState(false);
 
+    const { loading, error, data, refetch } = useAxios({
+        url:
+            "http://203.253.25.184:8080/search?start_date=2020-12-18%2020:33:00&disaster=1&name=COVID-19&level=1,3",
+    });
+
+    const test = () => {
+        console.log(loading);
+        console.log(data);
+        console.log(error);
+    };
+
     return (
         <>
             <Card id={id} className="interest__card-inner">
@@ -20,14 +32,14 @@ const InterestCard = ({ info, handleClick }) => {
                     <Card.Title>
                         <div className="interest__card-inner__title__div">
                             {nickname}
-                            <Button variant="danger" onClick={handleShow}>
+                            <Button variant="danger" onClick={test}>
                                 <FontAwesomeIcon icon={faTrashAlt} />
                             </Button>
                         </div>
                     </Card.Title>
                     <Card.Text>
-                        {init ? (
-                            <div>{interest_string}</div>
+                        {loading ? (
+                            <div>{JSON.stringify(data)}</div>
                         ) : (
                             <Spinner animation="border" role="status">
                                 <span className="sr-only">Loading...</span>
