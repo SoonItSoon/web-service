@@ -1,6 +1,6 @@
 import React from "react";
 import useTitle from "@unsooks/use-title";
-import locals from "locals";
+import locals from "values/locals";
 import {
     Container,
     Button,
@@ -10,7 +10,7 @@ import {
     Image,
 } from "react-bootstrap";
 import "stylesheets/Home.css";
-import urls from "urls";
+import urls from "values/urls";
 import { useHistory } from "react-router";
 import logo from "assets/soonitsoon_logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

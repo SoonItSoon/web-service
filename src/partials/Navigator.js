@@ -1,5 +1,5 @@
 import React from "react";
-import urls from "urls";
+import urls from "values/urls";
 import { Nav, Navbar } from "react-bootstrap";
 
 const Navigator = ({ auth, userObj, signOut, titleOnly }) => {

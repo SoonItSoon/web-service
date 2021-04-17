@@ -9,7 +9,7 @@ import NotFound from "routes/NotFound";
 import Search from "routes/Search";
 import SignIn from "routes/Sign-In";
 import Timeline from "routes/Timeline";
-import urls from "urls";
+import urls from "values/urls";
 
 const AppRouter = ({ auth, userObj }) => {
     return (

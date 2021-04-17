@@ -3,8 +3,8 @@ import { Container, Button, Card } from "react-bootstrap";
 import "stylesheets/NotFound.css";
 import { useHistory } from "react-router";
 import useTitle from "@unsooks/use-title";
-import locals from "locals";
-import urls from "urls";
+import locals from "values/locals";
+import urls from "values/urls";
 
 const NotFound = () => {
     useTitle(`Page Not Found | ${locals.siteName}`);

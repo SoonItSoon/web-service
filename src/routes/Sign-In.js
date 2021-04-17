@@ -6,8 +6,8 @@ import { authService, fbInstance } from "fbInstance";
 import "stylesheets/Sign-In.css";
 import { useHistory } from "react-router";
 import useTitle from "@unsooks/use-title";
-import locals from "locals";
-import urls from "urls";
+import locals from "values/locals";
+import urls from "values/urls";
 
 const SignIn = ({ auth }) => {
     useTitle(`Sign In | ${locals.siteName}`);
