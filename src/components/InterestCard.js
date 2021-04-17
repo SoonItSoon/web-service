@@ -1,7 +1,8 @@
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import { Button, Card, Modal } from "react-bootstrap";
+import { Button, Card, Modal, Spinner } from "react-bootstrap";
+import Loading from "routes/Loading";
 
 const InterestCard = ({ info, handleClick }) => {
     const { id, nickname, interest_string } = info;
@@ -9,6 +10,8 @@ const InterestCard = ({ info, handleClick }) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const [init, setInit] = useState(false);
 
     return (
         <>
@@ -22,7 +25,15 @@ const InterestCard = ({ info, handleClick }) => {
                             </Button>
                         </div>
                     </Card.Title>
-                    <Card.Text>{interest_string}</Card.Text>
+                    <Card.Text>
+                        {init ? (
+                            <div>{interest_string}</div>
+                        ) : (
+                            <Spinner animation="border" role="status">
+                                <span className="sr-only">Loading...</span>
+                            </Spinner>
+                        )}
+                    </Card.Text>
                     <Button
                         className="w-100 interest__card-inner__btn"
                         onClick={handleClick[0]}
