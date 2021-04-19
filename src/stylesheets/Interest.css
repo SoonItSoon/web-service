@@ -39,12 +39,34 @@
     margin-bottom: 0;
 }
 
+.interest__card-inner__title {
+    font-size: x-large;
+}
+
 .interest__card-inner__title__div {
     display: flex;
     justify-content: space-between;
 }
 
+.interest__card-inner__badge {
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.badge-color-0 {
+    background-color: var(--main-bg-dark) !important;
+}
+.badge-color-1 {
+    background-color: var(--main-yellow-dark) !important;
+}
+.badge-color-2 {
+    background-color: var(--main-yellow) !important;
+}
+
 .interest__card-inner__btn {
+    margin-top: 0.5rem;
     background-color: #fff !important;
     border-color: var(--main-bg-dark-more) !important;
     color: var(--main-bg-dark-more) !important;

@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^12.8.3",
     "@unsooks/use-axios": "^1.0.0",
     "@unsooks/use-title": "^1.0.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "firebase": "^8.3.1",
     "font-awesome": "^4.7.0",
