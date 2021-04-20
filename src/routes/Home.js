@@ -180,7 +180,7 @@ const Home = ({ auth }) => {
                             variant="outline-light"
                             onClick={goSignIn}
                         >
-                            Please Sign In
+                            계정 연동 하기
                         </Button>
                     </div>
                 )}

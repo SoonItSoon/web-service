@@ -29,7 +29,7 @@ const SignIn = ({ auth }) => {
         <Container className="signin__container">
             <Card className="text-dark signin__card">
                 <Card.Title className="text-center signin__card__title">
-                    로그인
+                    계정 연동
                 </Card.Title>
                 <Button
                     className="signin__card__btn"

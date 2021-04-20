@@ -84,7 +84,7 @@ const Timeline = ({ auth, userObj }) => {
                         className="timeline__datePicker__span"
                         variant="outline-light"
                     >
-                        Select Date :
+                        날짜 선택 :
                     </span>
                     <DatePicker
                         className="timeline__datePicker__picker"

@@ -79,7 +79,7 @@ const Interest = ({ auth, userObj }) => {
         <Container className="interest__container">
             <Card className="text-dark interest__card">
                 <Card.Title className="text-center interest__card__title">
-                    관심분야 정보
+                    설정된 관심분야
                 </Card.Title>
                 <Row>
                     {initInterList ? (
