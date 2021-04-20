@@ -77,7 +77,7 @@ const Timeline = ({ auth, userObj }) => {
         <Container className="timeline__container">
             <Card className="text-dark timeline__card">
                 <Card.Title className="text-center timeline__card__title">
-                    Timeline
+                    개인 동선 조회
                 </Card.Title>
                 <div className="timeline__datePicker__container">
                     <span
@@ -106,7 +106,7 @@ const Timeline = ({ auth, userObj }) => {
                     variant="outline-light"
                     onClick={goHome}
                 >
-                    Go Back Home
+                    돌아가기
                 </Button>
             </Card>
         </Container>

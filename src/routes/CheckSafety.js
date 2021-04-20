@@ -17,14 +17,14 @@ const CheckSafety = () => {
         <Container className="checkSafety__container">
             <Card className="text-dark checkSafety__card">
                 <Card.Title className="text-center checkSafety__card__title">
-                    CheckSafety
+                    위험 동선 확인
                 </Card.Title>
                 <Button
                     className="checkSafety__card__btn"
                     variant="outline-light"
                     onClick={goHome}
                 >
-                    Go Back Home
+                    돌아가기
                 </Button>
             </Card>
         </Container>

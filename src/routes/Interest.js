@@ -79,7 +79,7 @@ const Interest = ({ auth, userObj }) => {
         <Container className="interest__container">
             <Card className="text-dark interest__card">
                 <Card.Title className="text-center interest__card__title">
-                    Interest
+                    관심분야 정보
                 </Card.Title>
                 <Row>
                     {initInterList ? (
@@ -123,7 +123,7 @@ const Interest = ({ auth, userObj }) => {
                     variant="outline-light"
                     onClick={goHome}
                 >
-                    Go Back Home
+                    뒤로가기
                 </Button>
             </Card>
         </Container>

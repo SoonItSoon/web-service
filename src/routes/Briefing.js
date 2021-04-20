@@ -17,14 +17,14 @@ const Briefing = () => {
         <Container className="briefing__container">
             <Card className="text-dark briefing__card">
                 <Card.Title className="text-center briefing__card__title">
-                    Briefing
+                    일일 브리핑 정보
                 </Card.Title>
                 <Button
                     className="briefing__card__btn"
                     variant="outline-light"
                     onClick={goHome}
                 >
-                    Go Back Home
+                    돌아가기
                 </Button>
             </Card>
         </Container>

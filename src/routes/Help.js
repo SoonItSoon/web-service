@@ -17,14 +17,14 @@ const Help = () => {
         <Container className="help__container">
             <Card className="text-dark help__card">
                 <Card.Title className="text-center help__card__title">
-                    Help
+                    도움말
                 </Card.Title>
                 <Button
                     className="help__card__btn"
                     variant="outline-light"
                     onClick={goHome}
                 >
-                    Go Back Home
+                    돌아가기
                 </Button>
             </Card>
         </Container>

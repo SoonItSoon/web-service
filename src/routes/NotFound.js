@@ -25,7 +25,7 @@ const NotFound = () => {
                     variant="outline-light"
                     onClick={goHome}
                 >
-                    Go Back Home
+                    돌아가기
                 </Button>
             </Card>
         </Container>

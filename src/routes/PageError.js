@@ -10,7 +10,7 @@ const PageError = () => {
         <>
             <h1>PageError</h1>
             <Button variant="dark" href={urls.home}>
-                Go to Home
+                돌아가기
             </Button>
         </>
     );

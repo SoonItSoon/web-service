@@ -102,7 +102,7 @@ const InterestCard = ({ info, handleClick }) => {
                         className="w-100 interest__card-inner__btn"
                         onClick={handleClick[0]}
                     >
-                        이동
+                        조회하기
                     </Button>
                 </Card.Body>
             </Card>
