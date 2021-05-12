@@ -5,13 +5,17 @@
     width: 100vh;
 }
 
+.search__card,
+.search__card-inner {
+    width: 100%;
+    border-radius: 1rem !important;
+}
+
 .search__card {
     background: linear-gradient(var(--main-bg-dark), var(--main-bg-dark-more));
     border-color: var(--main-bg-dark-more) !important;
     padding: 2em;
     align-self: center;
-    width: 30rem;
-    border-radius: 1rem !important;
     box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.5),
         0 8px 16px -8px rgba(0, 0, 0, 0.5);
 }
