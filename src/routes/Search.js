@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import { Container, Button, Card, Row, Form, Col } from "react-bootstrap";
+import {
+    Container,
+    Button,
+    Card,
+    Row,
+    Form,
+    Col,
+    InputGroup,
+    FormControl,
+} from "react-bootstrap";
 import "stylesheets/Search.css";
 import { useHistory } from "react-router";
 import useTitle from "@unsooks/use-title";
@@ -131,25 +140,21 @@ const Search = ({ auth }) => {
                                 <Form>
                                     <Form.Row>
                                         <Col>
-                                            <Form.Group>
-                                                <Form.Control
-                                                    as="select"
-                                                    size="sm"
-                                                    custom
-                                                    onChange={handlePickLoc[0]}
-                                                >
-                                                    {locNames.map(
-                                                        (loc, idx) => (
-                                                            <option
-                                                                key={idx}
-                                                                value={idx}
-                                                            >
-                                                                {loc}
-                                                            </option>
-                                                        )
-                                                    )}
-                                                </Form.Control>
-                                            </Form.Group>
+                                            <Form.Control
+                                                as="select"
+                                                size="sm"
+                                                custom
+                                                onChange={handlePickLoc[0]}
+                                            >
+                                                {locNames.map((loc, idx) => (
+                                                    <option
+                                                        key={idx}
+                                                        value={idx}
+                                                    >
+                                                        {loc}
+                                                    </option>
+                                                ))}
+                                            </Form.Control>
                                         </Col>
                                         <Col>
                                             <Form.Control
@@ -176,36 +181,26 @@ const Search = ({ auth }) => {
                                 <Form>
                                     <Form.Row>
                                         <Col>
-                                            <Form.Group>
-                                                <Form.Control
-                                                    as="select"
-                                                    size="sm"
-                                                    custom
-                                                    onChange={
-                                                        handlePickDisaster[0]
+                                            <Form.Control
+                                                as="select"
+                                                size="sm"
+                                                custom
+                                                onChange={handlePickDisaster[0]}
+                                            >
+                                                {disasterNames.map(
+                                                    (disaster, idx) => {
+                                                        if (idx !== 0)
+                                                            return (
+                                                                <option
+                                                                    key={idx}
+                                                                    value={idx}
+                                                                >
+                                                                    {disaster}
+                                                                </option>
+                                                            );
                                                     }
-                                                >
-                                                    {disasterNames.map(
-                                                        (disaster, idx) => {
-                                                            if (idx !== 0)
-                                                                return (
-                                                                    <option
-                                                                        key={
-                                                                            idx
-                                                                        }
-                                                                        value={
-                                                                            idx
-                                                                        }
-                                                                    >
-                                                                        {
-                                                                            disaster
-                                                                        }
-                                                                    </option>
-                                                                );
-                                                        }
-                                                    )}
-                                                </Form.Control>
-                                            </Form.Group>
+                                                )}
+                                            </Form.Control>
                                         </Col>
                                         <Col>
                                             {disasterSubNames[0] && (
@@ -235,9 +230,46 @@ const Search = ({ auth }) => {
                             </div>
                             <div>
                                 <span>알림 종류</span>
-                                {disaster.array[condition.disaster].map(
-                                    (item) => item
-                                )}
+                                <Form>
+                                    <Form.Row>
+                                        {disaster.array[condition.disaster].map(
+                                            (kind, idx) => {
+                                                if (kind !== "N/A") {
+                                                    return (
+                                                        <Col key={idx}>
+                                                            <Form.Check
+                                                                type="checkbox"
+                                                                label={kind}
+                                                            />
+                                                        </Col>
+                                                    );
+                                                }
+                                            }
+                                        )}
+                                    </Form.Row>
+                                </Form>
+                            </div>
+                            {condition.disaster === "2" && (
+                                <>
+                                    <div>
+                                        <span>규모</span>
+                                        <Form>
+                                            <Form.Control type="range" />
+                                        </Form>
+                                    </div>
+                                    <div>
+                                        <span>관측 지역</span>
+                                    </div>
+                                </>
+                            )}
+                            <div>
+                                <span>텍스트 검색</span>
+                                <Form>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="검색어 입력"
+                                    />
+                                </Form>
                             </div>
                             <Button className="w-100" onClick={showCondition}>
                                 검색
