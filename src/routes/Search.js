@@ -32,7 +32,7 @@ const Search = ({ auth }) => {
             isStart: true,
         },
     ]);
-    const locNames = loc.shortName;
+    const locNames = loc.longName;
     const [locSubNames, setLocSubNames] = useState(["전체"]);
     const disasterNames = disaster.main;
     const [disasterSubNames, setDisasterSubNames] = useState(disaster.sub[1]);
@@ -99,7 +99,7 @@ const Search = ({ auth }) => {
 
     const handleSubmitSearch = () => {
         console.log(condition);
-        makeURL("asd");
+        makeURL("search");
     };
 
     return (
