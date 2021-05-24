@@ -34,3 +34,61 @@
 .rdrDateDisplayWrapper {
     display: none;
 }
+.rdrMonthAndYearWrapper {
+    padding: 0 !important;
+    height: 1rem !important;
+}
+.rdrMonth {
+    width: 100% !important;
+}
+
+.search__condition-div {
+    width: 100%;
+    height: 30rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search__condition-div-col {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.search__condition-div-col:first-child {
+    margin-right: 2rem;
+}
+
+.search__condition-unit {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.search__condition-span {
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+}
+
+.search__condition-content {
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.search__card-inner__btn {
+    margin-top: 0.5rem;
+    background-color: #fff !important;
+    border-color: var(--main-bg-dark-more) !important;
+    color: var(--main-bg-dark-more) !important;
+}
+
+.search__card-inner__btn:hover,
+.search__card-inner__btn:focus {
+    background-color: var(--main-bg-dark-more) !important;
+    border-color: var(--main-bg-dark-more) !important;
+    color: var(--main-yellow) !important;
+}
+
+.search__card-inner__btn:focus {
+    box-shadow: var(--main-bg-dark-more-shdow) !important;
+}
