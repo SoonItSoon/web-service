@@ -9,9 +9,6 @@ import urls from "values/urls";
 const CheckSafety = () => {
     useTitle(`CheckSafety | ${locals.siteName}`);
     const history = useHistory();
-    const goHome = () => {
-        history.push(urls.home);
-    };
 
     return (
         <Container className="checkSafety__container">
@@ -22,7 +19,7 @@ const CheckSafety = () => {
                 <Button
                     className="checkSafety__card__btn"
                     variant="outline-light"
-                    onClick={goHome}
+                    onClick={() => history.push(urls.home)}
                 >
                     돌아가기
                 </Button>

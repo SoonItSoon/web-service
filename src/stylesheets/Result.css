@@ -24,3 +24,32 @@
     display: flex;
     justify-content: center;
 }
+
+.result__pagination a {
+    border: none;
+    background-color: var(--main-bg-dark);
+    color: var(--main-white);
+}
+
+.result__pagination a:hover {
+    background-color: var(--main-bg-dark);
+    color: var(--main-yellow);
+}
+
+.result__pagination .active span {
+    background-color: var(--main-yellow) !important;
+    border-color: var(--main-yellow) !important;
+    color: var(--main-bg-dark) !important;
+}
+
+.result__btn-goBack {
+    color: var(--main-yellow) !important;
+    background-color: var(--main-bg-dark) !important;
+    border-color: var(--main-bg-dark) !important;
+    transition: all 1s ease-in-out;
+}
+
+.result__btn-goBack:hover {
+    color: var(--main-bg-dark) !important;
+    background-color: var(--main-white) !important;
+}

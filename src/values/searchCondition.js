@@ -1,16 +1,5 @@
 import { addDays } from "date-fns";
 
-const keys = [
-    "startDate",
-    "endDate",
-    "mainLocation",
-    "subLocation",
-    "disaster",
-    "disasterName",
-    "levels",
-    "innerText",
-];
-
 const initValue = {
     startDate: addDays(new Date(), -1),
     endDate: new Date(),
@@ -59,9 +48,21 @@ export const condition = {
     },
 
     initAll: () => {
-        keys.map((key) => {
+        Object.keys(initValue).map((key) => {
             condition[key] = initValue[key];
         });
+        condition.levels = [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+        ];
     },
 
     set: (target, value) => {

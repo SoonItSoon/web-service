@@ -9,9 +9,6 @@ import urls from "values/urls";
 const Briefing = () => {
     useTitle(`Briefing | ${locals.siteName}`);
     const history = useHistory();
-    const goHome = () => {
-        history.push(urls.home);
-    };
 
     return (
         <Container className="briefing__container">
@@ -22,7 +19,7 @@ const Briefing = () => {
                 <Button
                     className="briefing__card__btn"
                     variant="outline-light"
-                    onClick={goHome}
+                    onClick={() => history.push(urls.home)}
                 >
                     돌아가기
                 </Button>

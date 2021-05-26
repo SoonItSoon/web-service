@@ -25,62 +25,6 @@ import {
 const Home = ({ auth }) => {
     useTitle(`Home | ${locals.siteName}`);
     const history = useHistory();
-    const goSignIn = () => {
-        history.push(urls.signin);
-    };
-    const goBriefing = () => {
-        history.push(urls.briefing);
-    };
-    const goInterest = () => {
-        history.push(urls.interest);
-    };
-    const goCheckSafety = () => {
-        history.push(urls.safety);
-    };
-    const goTimeline = () => {
-        history.push(urls.timeline);
-    };
-    const goSearch = () => {
-        history.push(urls.search);
-    };
-
-    const menuObj = [
-        {
-            id: 0,
-            title: "일일 브리핑 정보",
-            desc: "오늘 하루 재난 정보를 한눈에",
-            icon: faCalendarAlt,
-            onClick: goBriefing,
-        },
-        {
-            id: 1,
-            title: "관심분야 정보",
-            desc: "맞춤형 재난 정보 제공",
-            icon: faUserCircle,
-            onClick: goInterest,
-        },
-        {
-            id: 2,
-            title: "위험 동선 확인",
-            desc: "보건소 방문 요청 확인",
-            icon: faExclamationTriangle,
-            onClick: goCheckSafety,
-        },
-        {
-            id: 3,
-            title: "개인 동선",
-            desc: "날짜별 나의 동선 확인",
-            icon: faMapMarkedAlt,
-            onClick: goTimeline,
-        },
-        {
-            id: 4,
-            title: "재난문자 검색",
-            desc: "키워드별 재난문자 검색",
-            icon: faSearch,
-            onClick: goSearch,
-        },
-    ];
 
     return (
         <Container className="container home__container">
@@ -103,7 +47,7 @@ const Home = ({ auth }) => {
                             <div className="home__carousel__btn-div">
                                 <Button
                                     className="home__carousel__btn"
-                                    onClick={goBriefing}
+                                    onClick={() => history.push(urls.briefing)}
                                 >
                                     <FontAwesomeIcon icon={faCalendarAlt} />
                                 </Button>
@@ -117,7 +61,7 @@ const Home = ({ auth }) => {
                             <div className="home__carousel__btn-div">
                                 <Button
                                     className="home__carousel__btn"
-                                    onClick={goInterest}
+                                    onClick={() => history.push(urls.interest)}
                                 >
                                     <FontAwesomeIcon icon={faUserCircle} />
                                 </Button>
@@ -131,7 +75,7 @@ const Home = ({ auth }) => {
                             <div className="home__carousel__btn-div">
                                 <Button
                                     className="home__carousel__btn"
-                                    onClick={goCheckSafety}
+                                    onClick={() => history.push(urls.safety)}
                                 >
                                     <FontAwesomeIcon
                                         icon={faExclamationTriangle}
@@ -147,7 +91,7 @@ const Home = ({ auth }) => {
                             <div className="home__carousel__btn-div">
                                 <Button
                                     className="home__carousel__btn"
-                                    onClick={goTimeline}
+                                    onClick={() => history.push(urls.timeline)}
                                 >
                                     <FontAwesomeIcon icon={faMapMarkedAlt} />
                                 </Button>
@@ -162,7 +106,7 @@ const Home = ({ auth }) => {
                             <div className="home__carousel__btn-div">
                                 <Button
                                     className="home__carousel__btn"
-                                    onClick={goSearch}
+                                    onClick={() => history.push(urls.search)}
                                 >
                                     <FontAwesomeIcon icon={faSearch} />
                                 </Button>
@@ -178,7 +122,7 @@ const Home = ({ auth }) => {
                         <Button
                             className="home__card__btn-signin"
                             variant="outline-light"
-                            onClick={goSignIn}
+                            onClick={() => history.push(urls.signin)}
                         >
                             계정 연동 하기
                         </Button>

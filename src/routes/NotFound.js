@@ -10,9 +10,6 @@ const NotFound = () => {
     useTitle(`Page Not Found | ${locals.siteName}`);
     const history = useHistory();
     history.push(urls.notfound);
-    const goHome = () => {
-        history.push(urls.home);
-    };
 
     return (
         <Container className="notfound__container">
@@ -23,7 +20,7 @@ const NotFound = () => {
                 <Button
                     className="notfound__card__btn"
                     variant="outline-light"
-                    onClick={goHome}
+                    onClick={() => history.push(urls.home)}
                 >
                     돌아가기
                 </Button>

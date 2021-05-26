@@ -3,26 +3,27 @@ import useTitle from "@unsooks/use-title";
 import locals from "values/locals";
 import { useHistory, useLocation } from "react-router";
 import urls from "values/urls";
-import { Badge, Container, Pagination, Spinner } from "react-bootstrap";
+import { Badge, Container, Pagination, Button } from "react-bootstrap";
 import { condition } from "values/searchCondition";
 import "stylesheets/Result.css";
 import { disasterNames } from "values/nameArrays";
 import axios from "axios";
 import SearchResultCard from "components/SearchResultCard";
+import Loading from "../partials/Loading";
 
 const Result = () => {
     useTitle(`Result | ${locals.siteName}`);
-    const location = useLocation();
-    if (location.state.auth === undefined || location.state.auth === false) {
-        goHome();
-    }
-    // const url = location.state.url;
-    const url =
-        "http://52.78.40.18:5000/search?start_date=2020-04-25%2018:22:19&end_date=2021-04-26%2018:22:19&disaster=1&level=1,2,3";
     const history = useHistory();
-    const goHome = () => {
-        history.push(urls.home);
-    };
+    const location = useLocation();
+    let url = "";
+    let prevLink = urls.home;
+    if (location.state === undefined) history.push(prevLink);
+    else {
+        // url = location.state.url;
+        prevLink = location.state.prevLink;
+    }
+    url =
+        "http://52.78.40.18:5000/search?start_date=2020-04-25%2018:22:19&end_date=2021-04-26%2018:22:19&disaster=1&level=1,2,3";
 
     const badgeVariants = ["success", "primary", "danger", "warning"];
     const [conditionStrArr, setConditionStrArr] = useState([]);
@@ -30,7 +31,7 @@ const Result = () => {
     const [loadingPage, setLoadingPage] = useState(true);
     const [page, setPage] = useState(1);
     const [lastPage, setLastPage] = useState(1);
-    const pageUnit = 9;
+    const pageUnit = 10;
     const [content, setContent] = useState([]);
 
     const getResult = async (url) => {
@@ -104,70 +105,80 @@ const Result = () => {
             ))}
             <div className="result__content__box">
                 {!loadingPage ? (
-                    content.map((element, idx) => (
-                        <SearchResultCard key={idx} result={element} />
-                    ))
+                    content.length === 0 ? (
+                        <span>No Result</span>
+                    ) : (
+                        content.map((element, idx) => (
+                            <SearchResultCard key={idx} result={element} />
+                        ))
+                    )
                 ) : (
-                    <Spinner animation="border" role="status">
-                        <span className="sr-only">Loading...</span>
-                    </Spinner>
+                    <Loading />
                 )}
-                <Pagination className="result__pagination">
-                    <Pagination.First onClick={() => setPage(1)} />
-                    <Pagination.Prev
-                        onClick={() => {
-                            if (page !== 1) setPage(page - 1);
-                        }}
-                    />
-                    {page === lastPage && (
-                        <Pagination.Item onClick={() => setPage(page - 4)}>
-                            {page - 4}
-                        </Pagination.Item>
-                    )}
-                    {(page === lastPage || page === lastPage - 1) && (
-                        <Pagination.Item onClick={() => setPage(page - 3)}>
-                            {page - 3}
-                        </Pagination.Item>
-                    )}
-                    {page - 2 > 0 && (
-                        <Pagination.Item onClick={() => setPage(page - 2)}>
-                            {page - 2}
-                        </Pagination.Item>
-                    )}
-                    {page - 1 > 0 && (
-                        <Pagination.Item onClick={() => setPage(page - 1)}>
-                            {page - 1}
-                        </Pagination.Item>
-                    )}
-                    <Pagination.Item active>{page}</Pagination.Item>
-                    {page + 1 <= lastPage && (
-                        <Pagination.Item onClick={() => setPage(page + 1)}>
-                            {page + 1}
-                        </Pagination.Item>
-                    )}
-                    {page + 2 <= lastPage && (
-                        <Pagination.Item onClick={() => setPage(page + 2)}>
-                            {page + 2}
-                        </Pagination.Item>
-                    )}
-                    {(page === 1 || page === 2) && (
-                        <Pagination.Item onClick={() => setPage(page + 3)}>
-                            {page + 3}
-                        </Pagination.Item>
-                    )}
-                    {page === 1 && (
-                        <Pagination.Item onClick={() => setPage(page + 4)}>
-                            {page + 4}
-                        </Pagination.Item>
-                    )}
-                    <Pagination.Next
-                        onClick={() => {
-                            if (page !== lastPage) setPage(page + 1);
-                        }}
-                    />
-                    <Pagination.Last onClick={() => setPage(lastPage)} />
-                </Pagination>
+                {lastPage !== 0 && (
+                    <Pagination className="result__pagination">
+                        <Pagination.First onClick={() => setPage(1)} />
+                        <Pagination.Prev
+                            onClick={() => {
+                                if (page !== 1) setPage(page - 1);
+                            }}
+                        />
+                        {page === lastPage && (
+                            <Pagination.Item onClick={() => setPage(page - 4)}>
+                                {page - 4}
+                            </Pagination.Item>
+                        )}
+                        {(page === lastPage || page === lastPage - 1) && (
+                            <Pagination.Item onClick={() => setPage(page - 3)}>
+                                {page - 3}
+                            </Pagination.Item>
+                        )}
+                        {page - 2 > 0 && (
+                            <Pagination.Item onClick={() => setPage(page - 2)}>
+                                {page - 2}
+                            </Pagination.Item>
+                        )}
+                        {page - 1 > 0 && (
+                            <Pagination.Item onClick={() => setPage(page - 1)}>
+                                {page - 1}
+                            </Pagination.Item>
+                        )}
+                        <Pagination.Item active>{page}</Pagination.Item>
+                        {page + 1 <= lastPage && (
+                            <Pagination.Item onClick={() => setPage(page + 1)}>
+                                {page + 1}
+                            </Pagination.Item>
+                        )}
+                        {page + 2 <= lastPage && (
+                            <Pagination.Item onClick={() => setPage(page + 2)}>
+                                {page + 2}
+                            </Pagination.Item>
+                        )}
+                        {(page === 1 || page === 2) && (
+                            <Pagination.Item onClick={() => setPage(page + 3)}>
+                                {page + 3}
+                            </Pagination.Item>
+                        )}
+                        {page === 1 && (
+                            <Pagination.Item onClick={() => setPage(page + 4)}>
+                                {page + 4}
+                            </Pagination.Item>
+                        )}
+                        <Pagination.Next
+                            onClick={() => {
+                                if (page !== lastPage) setPage(page + 1);
+                            }}
+                        />
+                        <Pagination.Last onClick={() => setPage(lastPage)} />
+                    </Pagination>
+                )}
             </div>
+            <Button
+                className="result__btn-goBack"
+                onClick={() => history.push(prevLink)}
+            >
+                뒤로가기
+            </Button>
         </Container>
     );
 };

@@ -9,9 +9,6 @@ import urls from "values/urls";
 const Help = () => {
     useTitle(`Help | ${locals.siteName}`);
     const history = useHistory();
-    const goHome = () => {
-        history.push(urls.home);
-    };
 
     return (
         <Container className="help__container">
@@ -22,7 +19,7 @@ const Help = () => {
                 <Button
                     className="help__card__btn"
                     variant="outline-light"
-                    onClick={goHome}
+                    onClick={() => history.push(urls.home)}
                 >
                     돌아가기
                 </Button>

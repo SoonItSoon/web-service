@@ -19,6 +19,10 @@
     opacity: 0.5;
 }
 
+.searchResult__card__target {
+    text-align: right;
+}
+
 .searchResult__card__msg {
     font-size: 1.5rem;
 }

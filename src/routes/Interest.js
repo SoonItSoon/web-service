@@ -9,15 +9,13 @@ import { dbService } from "fbInstance";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import InterestCard from "components/InterestCard";
+import { condition, makeURL } from "values/searchCondition";
 
 const Interest = ({ auth, userObj }) => {
     useTitle(`Interest | ${locals.siteName}`);
     const history = useHistory();
-    const goHome = () => {
-        history.push(urls.home);
-    };
     if (auth === false) {
-        goHome();
+        history.push(urls.home);
     }
 
     const [initInterList, setInitInterList] = useState(false);
@@ -51,12 +49,25 @@ const Interest = ({ auth, userObj }) => {
                 parentNode: { id },
             },
         } = target;
-
         const { interest_string } = interList.find(
             (element) => element.id === id
         );
+        const interestJson = JSON.parse(interest_string);
+        condition.initAll();
+        condition.set("mainLocation", interestJson.mainLocation);
+        condition.set("subLocation", interestJson.subLocation);
+        condition.set("disaster", interestJson.disasterIndex);
+        condition.set("disasterName", interestJson.disasterSubName);
+        condition.levels.map((value, idx) => {
+            if (interestJson[`disasterSubLevel${idx}`])
+                condition.toogleLevel(idx);
+        });
 
-        console.log(interest_string);
+        const url = makeURL("search");
+        history.push({
+            pathname: urls.result,
+            state: { auth, url, prevLink: urls.interest },
+        });
     };
 
     const handleDeleteClick = async ({ target }) => {
@@ -74,6 +85,10 @@ const Interest = ({ auth, userObj }) => {
             .doc(id)
             .delete();
     };
+
+    useEffect(() => {
+        condition.initAll();
+    }, []);
 
     return (
         <Container className="interest__container">
@@ -121,7 +136,7 @@ const Interest = ({ auth, userObj }) => {
                 <Button
                     className="interest__card__btn"
                     variant="outline-light"
-                    onClick={goHome}
+                    onClick={() => history.push(urls.home)}
                 >
                     뒤로가기
                 </Button>

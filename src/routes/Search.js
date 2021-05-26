@@ -15,11 +15,8 @@ import { condition, makeURL } from "values/searchCondition";
 const Search = ({ auth }) => {
     useTitle(`Search | ${locals.siteName}`);
     const history = useHistory();
-    const goHome = () => {
-        history.push(urls.home);
-    };
     if (auth === false) {
-        goHome();
+        history.push(urls.home);
     }
 
     const [init, setInit] = useState(false);
@@ -98,11 +95,17 @@ const Search = ({ auth }) => {
     };
 
     const handleSubmitSearch = () => {
-        const url = makeURL("search");
-        history.push({
-            pathname: urls.result,
-            state: { auth, url: url },
-        });
+        let checkLevel = false;
+        condition.levels.map((value) => (checkLevel = checkLevel | value));
+        if (checkLevel) {
+            const url = makeURL("search");
+            history.push({
+                pathname: urls.result,
+                state: { auth, url, prevLink: urls.search },
+            });
+        } else {
+            alert("알림 종류를 선택해 주세요");
+        }
     };
 
     useEffect(() => {
@@ -324,7 +327,7 @@ const Search = ({ auth }) => {
                 <Button
                     className="search__card__btn"
                     variant="outline-light"
-                    onClick={goHome}
+                    onClick={() => history.push(urls.home)}
                 >
                     돌아가기
                 </Button>

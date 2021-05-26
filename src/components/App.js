@@ -5,7 +5,7 @@ import AppRouter from "routers/AppRouter";
 import { authService } from "fbInstance";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "stylesheets/global.css";
-import Loading from "routes/Loading";
+import Loading from "partials/Loading";
 
 function App() {
     const [init, setInit] = useState(false);

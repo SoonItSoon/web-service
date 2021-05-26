@@ -14,11 +14,8 @@ import "react-datepicker/dist/react-datepicker.css";
 const Timeline = ({ auth, userObj }) => {
     useTitle(`Timeline | ${locals.siteName}`);
     const history = useHistory();
-    const goHome = () => {
-        history.push(urls.home);
-    };
     if (auth === false) {
-        goHome();
+        history.push(urls.home);
     }
 
     const [initTLList, setInitTLList] = useState(false);
@@ -104,7 +101,7 @@ const Timeline = ({ auth, userObj }) => {
                 <Button
                     className="timeline__card__btn"
                     variant="outline-light"
-                    onClick={goHome}
+                    onClick={() => history.push(urls.home)}
                 >
                     돌아가기
                 </Button>
