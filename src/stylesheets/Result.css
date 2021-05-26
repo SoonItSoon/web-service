@@ -1,0 +1,26 @@
+.result__container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.result__title {
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.result__badge {
+    width: fit-content;
+    font-size: 1rem !important;
+    margin-bottom: 0.25rem;
+    font-weight: 200 !important;
+}
+
+.result__content__box {
+    padding: 1rem;
+}
+
+.result__pagination {
+    display: flex;
+    justify-content: center;
+}

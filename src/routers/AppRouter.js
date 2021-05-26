@@ -6,6 +6,7 @@ import Help from "routes/Help";
 import Home from "routes/Home";
 import Interest from "routes/Interest";
 import NotFound from "routes/NotFound";
+import Result from "routes/Result";
 import Search from "routes/Search";
 import SignIn from "routes/Sign-In";
 import Timeline from "routes/Timeline";
@@ -38,6 +39,9 @@ const AppRouter = ({ auth, userObj }) => {
                 </Route>
                 <Route exact path={urls.search}>
                     <Search auth={auth} />
+                </Route>
+                <Route exact path={urls.result}>
+                    <Result auth={auth} />
                 </Route>
                 <Route exact path="*">
                     <NotFound />

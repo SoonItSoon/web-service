@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Button, Card, Row, Form, Col } from "react-bootstrap";
 import "stylesheets/Search.css";
 import { useHistory } from "react-router";
@@ -98,9 +98,16 @@ const Search = ({ auth }) => {
     };
 
     const handleSubmitSearch = () => {
-        console.log(condition);
-        makeURL("search");
+        const url = makeURL("search");
+        history.push({
+            pathname: urls.result,
+            state: { auth, url: url },
+        });
     };
+
+    useEffect(() => {
+        condition.initAll();
+    }, []);
 
     return (
         <Container className="search__container">

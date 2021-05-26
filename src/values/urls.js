@@ -7,6 +7,7 @@ const urls = {
     safety: "/check-safety",
     timeline: "/timeline",
     search: "/search",
+    result: "/result",
     notfound: "/404",
 };
 
