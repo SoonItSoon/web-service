@@ -15,7 +15,7 @@ import { condition, makeURL } from "values/searchCondition";
 const Search = ({ auth }) => {
     useTitle(`Search | ${locals.siteName}`);
     const history = useHistory();
-    if (auth === false) {
+    if (!auth) {
         history.push(urls.home);
     }
 

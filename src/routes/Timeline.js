@@ -14,7 +14,7 @@ import "react-datepicker/dist/react-datepicker.css";
 const Timeline = ({ auth, userObj }) => {
     useTitle(`Timeline | ${locals.siteName}`);
     const history = useHistory();
-    if (auth === false) {
+    if (!auth) {
         history.push(urls.home);
     }
 

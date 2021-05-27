@@ -26,7 +26,7 @@ const AppRouter = ({ auth, userObj }) => {
                     <SignIn auth={auth} />
                 </Route>
                 <Route exact path={urls.briefing}>
-                    <Briefing auth={auth} />
+                    <Briefing auth={auth} userObj={userObj} />
                 </Route>
                 <Route exact path={urls.interest}>
                     <Interest auth={auth} userObj={userObj} />

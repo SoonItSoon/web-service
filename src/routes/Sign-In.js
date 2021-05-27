@@ -15,9 +15,6 @@ const SignIn = ({ auth }) => {
     const [isLoading, setLoading] = useState(false);
     const history = useHistory();
 
-    if (auth !== null) {
-    }
-
     const onClickSignIn = async () => {
         setLoading(true);
         const provider = new fbInstance.auth.GoogleAuthProvider();

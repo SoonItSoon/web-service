@@ -14,7 +14,7 @@ import { condition, makeURL } from "values/searchCondition";
 const Interest = ({ auth, userObj }) => {
     useTitle(`Interest | ${locals.siteName}`);
     const history = useHistory();
-    if (auth === false) {
+    if (!auth) {
         history.push(urls.home);
     }
 
@@ -38,10 +38,6 @@ const Interest = ({ auth, userObj }) => {
                 }
             });
     };
-
-    useEffect(() => {
-        getInterest();
-    }, []);
 
     const handleInterestClick = ({ target }) => {
         const {
@@ -87,6 +83,7 @@ const Interest = ({ auth, userObj }) => {
     };
 
     useEffect(() => {
+        getInterest();
         condition.initAll();
     }, []);
 
