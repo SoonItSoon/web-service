@@ -64,7 +64,7 @@ const Briefing = ({ auth, userObj }) => {
             <div>
                 <Card className="briefing__card briefing__card-all">
                     <Card.Title className="briefing__card__title">
-                        전체
+                        전체 재난문자 통계
                     </Card.Title>
                     <Card.Body className="briefing__card__body">
                         <div className="h-50">

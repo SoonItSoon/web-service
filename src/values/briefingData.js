@@ -2,35 +2,41 @@ import { addDays } from "date-fns";
 
 export const pieData = [
     {
-        id: "go",
-        label: "go",
-        value: 450,
-        color: "hsl(224, 70%, 50%)",
+        id: "전염병",
+        value: 219,
     },
     {
-        id: "haskell",
-        label: "haskell",
-        value: 369,
-        color: "hsl(116, 70%, 50%)",
+        id: "호우",
+        value: 12,
     },
     {
-        id: "stylus",
-        label: "stylus",
-        value: 536,
-        color: "hsl(322, 70%, 50%)",
+        id: "홍수",
+        value: 8,
     },
     {
-        id: "erlang",
-        label: "erlang",
-        value: 168,
-        color: "hsl(167, 70%, 50%)",
+        id: "기타",
+        value: 5,
     },
-    {
-        id: "make",
-        label: "make",
-        value: 429,
-        color: "hsl(200, 70%, 50%)",
-    },
+    // {
+    //     id: "홍수",
+    //     value: 429,
+    // },
+    // {
+    //     id: "폭염",
+    //     value: 429,
+    // },
+    // {
+    //     id: "한파",
+    //     value: 429,
+    // },
+    // {
+    //     id: "호우",
+    //     value: 429,
+    // },
+    // {
+    //     id: "대설",
+    //     value: 429,
+    // },
 ];
 
 const today = new Date();
