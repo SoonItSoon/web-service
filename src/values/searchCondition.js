@@ -92,7 +92,7 @@ export const makeURL = (kind) => {
     // required
     const start_date = condition.startDate;
     url += `?start_date=${start_date.getFullYear()}-${zeroFormmatter(
-        start_date.getMonth()
+        start_date.getMonth() + 1
     )}-${zeroFormmatter(start_date.getDate())} ${zeroFormmatter(
         start_date.getHours()
     )}:${zeroFormmatter(start_date.getMinutes())}:${zeroFormmatter(
@@ -103,7 +103,7 @@ export const makeURL = (kind) => {
     // not required (default Today)
     const end_date = condition.endDate;
     url += `&end_date=${end_date.getFullYear()}-${zeroFormmatter(
-        end_date.getMonth()
+        end_date.getMonth() + 1
     )}-${zeroFormmatter(end_date.getDate())} ${zeroFormmatter(
         end_date.getHours()
     )}:${zeroFormmatter(end_date.getMinutes())}:${zeroFormmatter(
@@ -146,6 +146,9 @@ export const makeURL = (kind) => {
     // not required
     if (condition.disasterName !== "전체")
         url += `&name=${condition.disasterName}`;
+
+    // disaster === 지진
+    if (condition.disaster === "2") url += "&scale_min=0.0&scale_max=5.0";
 
     return url;
 };

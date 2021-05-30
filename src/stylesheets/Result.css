@@ -47,6 +47,7 @@
     background-color: var(--main-bg-dark) !important;
     border-color: var(--main-bg-dark) !important;
     transition: all 1s ease-in-out;
+    margin-bottom: 1rem;
 }
 
 .result__btn-goBack:hover {

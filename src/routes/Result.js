@@ -19,11 +19,11 @@ const Result = () => {
     let prevLink = urls.home;
     if (location.state === undefined) history.push(prevLink);
     else {
-        // url = location.state.url;
+        url = location.state.url;
         prevLink = location.state.prevLink;
     }
-    url =
-        "http://52.78.40.18:5000/search?start_date=2020-04-25%2018:22:19&end_date=2021-04-26%2018:22:19&disaster=1&level=1,2,3";
+    // url =
+    //     "http://52.78.40.18:5000/search?start_date=2020-04-25%2018:22:19&end_date=2021-04-26%2018:22:19&disaster=1&level=1,2,3";
 
     const badgeVariants = ["success", "primary", "danger", "warning"];
     const [conditionStrArr, setConditionStrArr] = useState([]);
@@ -115,7 +115,7 @@ const Result = () => {
                 ) : (
                     <Loading />
                 )}
-                {lastPage !== 0 && (
+                {lastPage !== 1 && (
                     <Pagination className="result__pagination">
                         <Pagination.First onClick={() => setPage(1)} />
                         <Pagination.Prev

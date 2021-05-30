@@ -281,7 +281,7 @@ const Search = ({ auth }) => {
                                             </Form.Row>
                                         </Form>
                                     </div>
-                                    {condition.disaster === "2" && (
+                                    {/* {condition.disaster === "2" && (
                                         <>
                                             <div className="search__condition-unit">
                                                 <span className="search__condition-span">
@@ -297,7 +297,7 @@ const Search = ({ auth }) => {
                                                 </span>
                                             </div>
                                         </>
-                                    )}
+                                    )} */}
                                     <div className="search__condition-unit">
                                         <span className="search__condition-span">
                                             텍스트 검색
