@@ -2,8 +2,7 @@
 import React, { useState } from "react";
 import $script from "scriptjs";
 
-const MapBuilder = ({ tlList }) => {
-    const [linePath, setLinePath] = useState([]);
+const MapBuilder = ({ tlList, danger }) => {
     const [loadMap, setLoadMap] = useState(false);
     const [loadFirst, setLoadFirst] = useState(true);
     const kakao_url = `http://dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=61375cd8589972b3a28cb21d56798474`;
@@ -15,7 +14,6 @@ const MapBuilder = ({ tlList }) => {
                 return;
             }
             setLoadFirst(false);
-            console.log(`loadFirst : ${loadFirst}`);
             let container = document.getElementById("map");
             let options;
             if (tlList === []) {
@@ -42,14 +40,6 @@ const MapBuilder = ({ tlList }) => {
                     timeline.longitude
                 );
 
-                // setLinePath((prev) => [
-                //     ...prev,
-                //     new kakao.maps.LatLng(
-                //         timeline.latitude,
-                //         timeline.longitude
-                //     ),
-                // ]);
-
                 // 마커를 생성합니다
                 var marker = new kakao.maps.Marker({
                     map: map,
@@ -57,20 +47,19 @@ const MapBuilder = ({ tlList }) => {
                 });
 
                 // 마커에 커서가 오버됐을 때 마커 위에 표시할 인포윈도우를 생성합니다
+                var marckerText = "";
+                var iwContent = "";
+                if (danger) {
+                    const tmpDate = timeline.date.split("-");
+                    marckerText += `${tmpDate[1]}월 ${tmpDate[2]}일 `;
+                }
                 const tmpTime = timeline.time.split(":");
-                const marckerText = `${tmpTime[0]}시 ${tmpTime[1]}분`;
-                var iwContent = `<div class="timeline__map__marker">${marckerText} 위치</div>`; // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-
-                // var customOverlay = new kakao.maps.CustomOverlay({
-                //     map: map,
-                //     content: `<div class="timeline__map__marker">${marckerText} 위치</div>`,
-                //     position: markerPosition,
-                //     xAnchor: 0.5,
-                //     yAnchor: 1,
-                //     zIndex: 3,
-                // });
-                // customOverlay.setVisible(0);
-
+                marckerText += `${tmpTime[0]}시 ${tmpTime[1]}분`;
+                if (danger) {
+                    iwContent = `<div class="timeline__map__marker">${marckerText}</div>`;
+                } else {
+                    iwContent = `<div class="timeline__map__marker">${marckerText} 위치</div>`;
+                }
                 // 인포윈도우를 생성합니다
                 var infowindow = new kakao.maps.InfoWindow({
                     content: iwContent,
@@ -89,22 +78,7 @@ const MapBuilder = ({ tlList }) => {
                     infowindow.close();
                     // customOverlay.setVisible(0);
                 });
-
-                // 마커가 지도 위에 표시되도록 설정합니다
-                // marker.setMap(map);
             });
-
-            // 지도에 표시할 선을 생성합니다
-            // var polyline = new kakao.maps.Polyline({
-            //     path: linePath, // 선을 구성하는 좌표배열 입니다
-            //     strokeWeight: 5, // 선의 두께 입니다
-            //     strokeColor: "#FFAE00", // 선의 색깔입니다
-            //     strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-            //     strokeStyle: "solid", // 선의 스타일입니다
-            // });
-
-            // 지도에 선을 표시합니다
-            // polyline.setMap(map);
 
             setLoadMap(true);
             console.log("Completed Load Map");

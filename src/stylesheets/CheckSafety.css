@@ -1,27 +1,46 @@
-.checkSafety__container {
+.checksafety__container {
     display: flex;
     justify-content: center;
     height: 85vh;
     width: 100vh;
+    user-select: none;
 }
 
-.checkSafety__card {
+.checksafety__card {
     background: linear-gradient(var(--main-bg-dark), var(--main-bg-dark-more));
     border-color: var(--main-bg-dark-more) !important;
     padding: 2em;
     align-self: center;
-    width: 30rem;
+    width: 100%;
     border-radius: 1rem !important;
     box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.5),
         0 8px 16px -8px rgba(0, 0, 0, 0.5);
 }
 
-.checkSafety__card__title {
+.checksafety__card__title {
     font-size: 2rem !important;
     color: var(--main-yellow);
 }
 
-.checkSafety__card__btn {
+.checksafety__card__btn {
     width: 100%;
+    margin-top: 2rem;
+}
+
+.checksafety__map {
     margin-top: 1rem;
+    height: 30rem;
+    width: 100%;
+    border-radius: 1rem;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checksafety__map__span {
+    text-align: center;
+    color: #fff;
+    font-size: 2rem;
+    margin-top: 2rem;
 }

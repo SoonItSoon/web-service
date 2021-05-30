@@ -32,7 +32,7 @@ const AppRouter = ({ auth, userObj }) => {
                     <Interest auth={auth} userObj={userObj} />
                 </Route>
                 <Route exact path={urls.safety}>
-                    <CheckSafety auth={auth} />
+                    <CheckSafety auth={auth} userObj={userObj} />
                 </Route>
                 <Route exact path={urls.timeline}>
                     <Timeline auth={auth} userObj={userObj} />
