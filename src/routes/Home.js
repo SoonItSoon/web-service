@@ -49,7 +49,10 @@ const Home = ({ auth }) => {
                                     className="home__carousel__btn"
                                     onClick={() => history.push(urls.briefing)}
                                 >
-                                    <FontAwesomeIcon icon={faCalendarAlt} />
+                                    <FontAwesomeIcon
+                                        size="4x"
+                                        icon={faCalendarAlt}
+                                    />
                                 </Button>
                             </div>
                             <Carousel.Caption className="home__carousel__caption">
@@ -63,7 +66,10 @@ const Home = ({ auth }) => {
                                     className="home__carousel__btn"
                                     onClick={() => history.push(urls.interest)}
                                 >
-                                    <FontAwesomeIcon icon={faUserCircle} />
+                                    <FontAwesomeIcon
+                                        size="4x"
+                                        icon={faUserCircle}
+                                    />
                                 </Button>
                             </div>
                             <Carousel.Caption className="home__carousel__caption">
@@ -78,6 +84,7 @@ const Home = ({ auth }) => {
                                     onClick={() => history.push(urls.safety)}
                                 >
                                     <FontAwesomeIcon
+                                        size="4x"
                                         icon={faExclamationTriangle}
                                     />
                                 </Button>
@@ -93,11 +100,14 @@ const Home = ({ auth }) => {
                                     className="home__carousel__btn"
                                     onClick={() => history.push(urls.timeline)}
                                 >
-                                    <FontAwesomeIcon icon={faMapMarkedAlt} />
+                                    <FontAwesomeIcon
+                                        size="4x"
+                                        icon={faMapMarkedAlt}
+                                    />
                                 </Button>
                             </div>
                             <Carousel.Caption className="home__carousel__caption">
-                                <h3>개인 동선</h3>
+                                <h3>개인 동선 확인</h3>
                                 <p>날짜별 나의 동선 확인</p>
                             </Carousel.Caption>
                         </Carousel.Item>
@@ -108,7 +118,10 @@ const Home = ({ auth }) => {
                                     className="home__carousel__btn"
                                     onClick={() => history.push(urls.search)}
                                 >
-                                    <FontAwesomeIcon icon={faSearch} />
+                                    <FontAwesomeIcon
+                                        size="4x"
+                                        icon={faSearch}
+                                    />
                                 </Button>
                             </div>
                             <Carousel.Caption className="home__carousel__caption">

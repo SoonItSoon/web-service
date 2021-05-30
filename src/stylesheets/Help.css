@@ -10,7 +10,8 @@
     border-color: var(--main-bg-dark-more) !important;
     padding: 2em;
     align-self: center;
-    width: 30rem;
+    width: 100%;
+    height: 80%;
     border-radius: 1rem !important;
     box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.5),
         0 8px 16px -8px rgba(0, 0, 0, 0.5);
@@ -19,6 +20,49 @@
 .help__card__title {
     font-size: 2rem !important;
     color: var(--main-yellow);
+}
+
+.help__Btn__Group {
+    width: 100%;
+}
+
+.help__Btn__Group button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    background: linear-gradient(var(--main-white), var(--main-white2));
+    border: none;
+    color: var(--main-bg-dark-more);
+}
+
+.help__Btn__Group button:hover {
+    color: var(--main-yellow);
+}
+
+.help__Btn__Group .active,
+.help__Btn__Group button:focus,
+.help__Btn__Group button:active {
+    background: linear-gradient(var(--main-bg-dark), var(--main-bg-dark-more));
+    color: var(--main-yellow) !important;
+}
+
+.help__Btn__Group button > span {
+    margin-top: 0.5rem;
+}
+
+.help__content {
+    margin-top: 1rem;
+    background: linear-gradient(var(--main-white), var(--main-white2));
+    width: 100%;
+    height: 75%;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+.help__content p {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
 }
 
 .help__card__btn {

@@ -69,6 +69,7 @@
     border-color: var(--main-bg-dark-more) !important;
     font-size: 3rem !important;
     border-radius: 2rem !important;
+    color: var(--main-yellow) !important;
 }
 
 .home__carousel__btn:focus {
@@ -80,7 +81,6 @@
 .home__carousel__btn:hover {
     background-color: var(--main-bg-dark) !important;
     border-color: var(--main-bg-dark) !important;
-    color: var(--main-yellow) !important;
 }
 
 .home__carousel__div {
