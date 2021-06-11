@@ -86,17 +86,17 @@ export const barData = [
         },
         {
             date: `${addDays(today, -5).getDate()}일`,
-            count: 2,
+            count: 1,
             countColor: "hsl(310, 70%, 50%)",
         },
         {
             date: `${addDays(today, -4).getDate()}일`,
-            count: 3,
+            count: 1,
             countColor: "hsl(310, 70%, 50%)",
         },
         {
             date: `${addDays(today, -3).getDate()}일`,
-            count: 2,
+            count: 1,
             countColor: "hsl(310, 70%, 50%)",
         },
         {
@@ -106,39 +106,39 @@ export const barData = [
         },
         {
             date: `${addDays(today, -1).getDate()}일`,
-            count: 0,
+            count: 2,
             countColor: "hsl(310, 70%, 50%)",
         },
         {
             date: "오늘",
-            count: 4,
+            count: 1,
             countColor: "hsl(352, 70%, 50%)",
         },
     ],
     [
         {
             date: `${addDays(today, -6).getDate()}일`,
-            count: 3,
+            count: 1,
             countColor: "hsl(310, 70%, 50%)",
         },
         {
             date: `${addDays(today, -5).getDate()}일`,
-            count: 2,
+            count: 1,
             countColor: "hsl(310, 70%, 50%)",
         },
         {
             date: `${addDays(today, -4).getDate()}일`,
-            count: 5,
+            count: 1,
             countColor: "hsl(310, 70%, 50%)",
         },
         {
             date: `${addDays(today, -3).getDate()}일`,
-            count: 6,
+            count: 1,
             countColor: "hsl(310, 70%, 50%)",
         },
         {
             date: `${addDays(today, -2).getDate()}일`,
-            count: 7,
+            count: 1,
             countColor: "hsl(310, 70%, 50%)",
         },
         {
@@ -148,14 +148,14 @@ export const barData = [
         },
         {
             date: "오늘",
-            count: 12,
+            count: 1,
             countColor: "hsl(352, 70%, 50%)",
         },
     ],
     [
         {
             date: `${addDays(today, -6).getDate()}일`,
-            count: 5,
+            count: 0,
             countColor: "hsl(310, 70%, 50%)",
         },
         {
@@ -170,22 +170,22 @@ export const barData = [
         },
         {
             date: `${addDays(today, -3).getDate()}일`,
-            count: 2,
+            count: 0,
             countColor: "hsl(310, 70%, 50%)",
         },
         {
             date: `${addDays(today, -2).getDate()}일`,
-            count: 1,
+            count: 0,
             countColor: "hsl(310, 70%, 50%)",
         },
         {
             date: `${addDays(today, -1).getDate()}일`,
-            count: 3,
+            count: 1,
             countColor: "hsl(310, 70%, 50%)",
         },
         {
             date: "오늘",
-            count: 1,
+            count: 0,
             countColor: "hsl(352, 70%, 50%)",
         },
     ],
