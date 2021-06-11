@@ -46,7 +46,7 @@
 }
 
 .timeline__map__marker {
-    padding: 0 3px;
+    /* padding: 0 3px; */
     /* color: var(--main-yellow); */
     /* background-color: var(--main-bg-dark-more); */
 }

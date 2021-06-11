@@ -1,7 +1,7 @@
 import { addDays } from "date-fns";
 
 const initValue = {
-    startDate: addDays(new Date(), -1),
+    startDate: addDays(new Date(), -10),
     endDate: new Date(),
     mainLocation: "전체",
     subLocation: "전체",
@@ -23,7 +23,7 @@ const initValue = {
 };
 
 export const condition = {
-    startDate: addDays(new Date(), -1),
+    startDate: addDays(new Date(), -10),
     endDate: new Date(),
     mainLocation: "전체",
     subLocation: "전체",

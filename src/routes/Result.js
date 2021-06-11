@@ -54,9 +54,13 @@ const Result = () => {
         setConditionStrArr([]);
 
         let dateStr = "기간: ";
-        dateStr += `${condition.startDate.getFullYear()}년 ${condition.startDate.getMonth()}월 ${condition.startDate.getDate()}일`;
+        dateStr += `${condition.startDate.getFullYear()}년 ${
+            condition.startDate.getMonth() + 1
+        }월 ${condition.startDate.getDate()}일`;
         dateStr += " ~ ";
-        dateStr += `${condition.endDate.getFullYear()}년 ${condition.endDate.getMonth()}월 ${condition.endDate.getDate()}일`;
+        dateStr += `${condition.endDate.getFullYear()}년 ${
+            condition.endDate.getMonth() + 1
+        }월 ${condition.endDate.getDate()}일`;
         setConditionStrArr((prev) => [...prev, dateStr]);
 
         let locationStr = "지역: 전체";
